@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,setspace}
+
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+%%%% In most cases you won't need to edit anything above this line %%%%
+
+\begin{document}
+\hfill Tanner Kvarfordt 
+
+\hfill A02052217
+
+\hfill Math 2270
+
+\hfill Assignment \#3
+
+
+\begin{itemize}
+\item[2.4.6)] Show that $(A+B)^2$ is different from $A^2+2AB+B^2$, when 
+\begin{equation*} A =
+\left[\begin{array}{cc} 1 & 2 \\ 0 & 0\end{array}\right] \text{  and  }
+B =
+\left[\begin{array}{cc} 1 & 0 \\ 3 & 0\end{array}\right] \text{  .}
+\end{equation*}
+Write down the correct rule for $(A+B)(A+B)= A^2 + \_\_\_\_\_\_ + B^2$ \\ \\
+\textit{Solution.} 
+\begin{equation*}
+(A+B)^2 = \left[\begin{array}{cc} 2 & 2 \\ 3 & 0\end{array}\right]^2 = 
+\left[\begin{array}{cc} 10 & 4 \\ 6 & 6\end{array}\right]
+\end{equation*}
+\begin{equation*}
+A^2+2AB+B^2 = \left[\begin{array}{cc} 1 & 2 \\ 0 & 0\end{array}\right] + 
+2\left[\begin{array}{cc} 7 & 0 \\ 0 & 0\end{array}\right] + \left[\begin{array}{cc} 1 & 0 \\ 3 & 0\end{array}\right] =
+\left[\begin{array}{cc} 16 & 2 \\ 3 & 0\end{array}\right]
+\end{equation*}
+It should be $A^2+AB+BA+B^2$
+
+\item[2.4.14)] Which of the following matrices are guaranteed to equal $(A-B)^2$: \\
+$A^2-B^2$, $(B-A)^2$, $A^2-2AB+B^2$, $A(A-B)-B(A-B)$, $A^2-AB-BA+B^2$
+
+\textit{Solution.}
+\begin{equation*}
+(A-B)^2=(A-B)(A-B)=(A-B)A-(A-B)B=A^2-AB-(BA-B^2) = A^2-AB-BA+B^2
+\end{equation*}
+
+\item[2.4.15)] True or false:
+	\begin{itemize}
+	\item[a)] If $A^2$ is defined then $A$ is necessarily square.
+    \item[b)] If $AB$ and $BA$ are defined then $A$ and $B$ are square.
+    \item[c)] If $AB$ and $BA$ are defined then $AB$ and $BA$ are square.
+    \item[d)] If $AB=B$ then $A=I$.
+	\end{itemize}
+    
+\textit{Solution.}
+	\begin{itemize}
+	\item[a)] True. In order to multiply matrices, the second matrix must have the same number of rows as the first matrix has columns. Thus, to multiply a matrix by itself, it must have the same number of rows as it has columns.
+    \item[b)] False. Consider 
+    \begin{equation*} A =
+    \left[\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 0 & 0\end{array}\right]
+    \hspace{4mm} B = 
+    \left[\begin{array}{cc} 0 & 1 \\ 0 & 0 \\ 0 & 0\end{array}\right]
+    \end{equation*}
+    Both $AB$ and $BA$ are defined, and neither matrix is square.
+    \item[c)] True. $AB$ and $BA$ exist if the respective matrices are $m$ x $n$ and $n$ x $m$, as shown in part b. By the properties of matrix multiplication, $AB$ will result in an $m$ x $m$ matrix and $BA$ will result in an $n$ x $n$ matrix.
+    \item[d)] False. Consider that $A$ and $B$ are both $n$ x $n$ zero matrices.
+	\end{itemize}
+
+\item[2.4.23)]
+	\begin{itemize}
+	\item[(a)] Find a nonzero matrix $A$ for which $A^2=0$
+    \item[(b)] Find a matrix that has $A^2 \neq 0$ but $A^3 = 0$
+	\end{itemize}
+
+\textit{Solution.}
+	\begin{itemize}
+	\item[(a)] $A=\left[\begin{array}{rr} 1 & 1 \\ -1 & -1 \end{array}\right]$
+    \hspace{4mm} $A^2=\left[\begin{array}{rr} 0 & 0 \\0 & 0 \end{array}\right]$
+    \item[(b)] $A=\left[\begin{array}{ccc} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{array}\right]$
+    \hspace{4mm} $A^2=\left[\begin{array}{ccc} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{array}\right]$
+    \hspace{4mm} $A^3=\left[\begin{array}{ccc} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{array}\right]$
+	\end{itemize}
+
+\item[2.5.13)] If the product $M=ABC$ of three square matrices is invertible, then $B$ is invertible (so are $A$ and $C$). Find a formula for $B^{-1}$ that involves $M^{-1}$ and $A$ and $C$.
+
+\textit{Solution.}
+\begin{equation*}
+M=ABC \Rightarrow A^{-1}M=BC \Rightarrow B^{-1}A^{-1}M=C \Rightarrow B^{-1}A^{-1}=CM^{-1} \Rightarrow B^{-1}=CM^{-1}A
+\end{equation*}
+
+\item[2.5.29)] True or false (with a counterexample if false and a reason if true):
+	\begin{itemize}
+	\item[(a)] A 4 by 4 matrix with a row of zeros is not invertible.
+    \item[(b)] Every matrix with 1's down the main diagonal is invertible.
+    \item[(c)] If $A$ is invertible then $A^{-1}$ and $A^2$ are invertible.
+	\end{itemize}
+    
+\textit{Solution.}
+	\begin{itemize}
+	\item[(a)] True. There would not be four pivots.
+    \item[(b)] False. Consider $\left[\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{array}\right]
+    \underset{E_{32}=\left[\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & -1 & 1 \end{array}\right]}{\xrightarrow{\hspace{30mm}}}         	\left[\begin{array}{ccc} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{array}\right]$ \\ does not have enough pivots and therefore is not invertible.
+    \item[(c)] True. Check by seeing that 
+    \[A^2(A^2)^{-1} = (AA)(AA)^{-1}=(AA)(A^{-1}A^{-1})=A(AA^{-1})A^{-1}=AIA^{-1}=AA^{-1}=I\]
+    and
+    \[(A^{-1})(A^{-1})^{-1}=A^{-1}A=I\]
+	\end{itemize}
+
+\item[2.6.13)] Compute $L$ and $U$ for the symmetric matrix $A$:
+\begin{equation*} A =
+\left[\begin{array}{cccc}
+a & a & a & a \\
+a & b & b & b \\
+a & b & c & c \\
+a & b & c & d 
+\end{array}\right]
+\end{equation*}
+Find four conditions on $a$, $b$, $c$, $d$ to get $A=LU$ with four pivots.
+
+\textit{Solution.}
+\begin{equation*} A =
+\left[\begin{array}{cccc}
+a & a & a & a \\
+a & b & b & b \\
+a & b & c & c \\
+a & b & c & d 
+\end{array}\right]
+\underset{E_{1}=
+\left[\begin{array}{rrrr}
+1 &  0 & 0 & 0 \\
+-1 & 1 & 0 & 0 \\
+-1 & 0 & 1 & 0 \\
+-1 & 0 & 0 & 1 
+\end{array}\right]}{\xrightarrow{\hspace{35mm}}}
+\left[\begin{array}{cccc}
+a &   a  &   a  & a \\
+0 & -a+b & -a+b & -a+b \\
+0 & -a+b & -a+c & -a+c \\
+0 & -a+b & -a+c & -a+d
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+\underset{E_{2}=
+\left[\begin{array}{crcc}
+1 &  0 & 0 & 0 \\
+0 &  1 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & -1 & 0 & 1 
+\end{array}\right]}{\xrightarrow{\hspace{35mm}}}
+\left[\begin{array}{cccc}
+a &   a  &   a  & a    \\
+0 & -a+b & -a+b & -a+b \\
+0 &   0  & -b+c & -b+c \\
+0 &   0  & -b+c & -b+d
+\end{array}\right]
+\end{equation*}
+\begin{equation*}
+\underset{E_{43}=
+\left[\begin{array}{crcc}
+1 & 0 &  0 & 0 \\
+0 & 1 &  0 & 0 \\
+0 & 0 &  1 & 0 \\
+0 & 0 & -1 & 1 
+\end{array}\right]}{\xrightarrow{\hspace{35mm}}}
+\left[\begin{array}{cccc}
+a &   a  &   a  & a    \\
+0 & -a+b & -a+b & -a+b \\
+0 &   0  & -b+c & -b+c \\
+0 &   0  &   0  & -c+d
+\end{array}\right] = U
+\end{equation*}
+And because $L$ is a lower triangular matrix containing the multipliers of $A$ below the diagonal, we know:
+$L=\left[\begin{array}{crcc}
+1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 1 & 1 & 0 \\
+1 & 1 & 1 & 1 
+\end{array}\right]$
+Conditions: $a \neq 0, b \neq a, 0 \neq c \neq b, d \neq c$
+
+\item[2.6.16)] Solve $L\mathbf{c}=\mathbf{b}$ to find $\mathbf{c}$. Then solve $U\mathbf{x}=\mathbf{c}$ to find $\mathbf{x}$. What was $A$?
+\begin{equation*} L = 
+\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 1 
+\end{array}\right]
+\hspace{4mm}
+U =
+\left[\begin{array}{ccc}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{array}\right]
+\hspace{4mm}
+\mathbf{b}=\left[\begin{array}{c} 4 \\ 5 \\ 6\end{array}\right]
+\end{equation*}
+
+\textit{Solution.}
+\begin{equation*}
+L\mathbf{c}=\mathbf{b} \Rightarrow 
+\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 1 
+\end{array}\right] \mathbf{c} = 
+\left[\begin{array}{c}4 \\ 5 \\ 6 \end{array}\right] \Rightarrow \mathbf{c}=\left[\begin{array}{c}4 \\ 1 \\ 1 \end{array}\right]
+\end{equation*}
+\begin{equation*}
+U\mathbf{x} = \mathbf{c} \Rightarrow
+\left[\begin{array}{ccc}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{array}\right] \mathbf{x} = \left[\begin{array}{c}4 \\ 1 \\ 1 \end{array}\right] \Rightarrow \mathbf{x} = \left[\begin{array}{c}3 \\ 0 \\ 1 \end{array}\right]
+\end{equation*}
+\begin{equation*}
+A=LU=
+\left[\begin{array}{ccc}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+1 & 1 & 1 
+\end{array}\right]
+\left[\begin{array}{ccc}
+1 & 1 & 1 \\
+0 & 1 & 1 \\
+0 & 0 & 1
+\end{array}\right] =
+\left[\begin{array}{ccc}
+1 & 1 & 1 \\
+1 & 2 & 2 \\
+1 & 2 & 3
+\end{array}\right]
+\end{equation*}
+
+\item[S1)] $\mathbf{A}$ is 3-by-5,  $\mathbf{B}$ is 5-by-3,  $\mathbf{C}$ is 5-by-1,  $\mathbf{D}$ is 3-by-1. Which of the following matrix operations are allowed: $\mathbf{B}\mathbf{A}$, \hspace{7pt} $\mathbf{A}\mathbf{B}$, \hspace{7pt} $\mathbf{A}\mathbf{B}\mathbf{D}$, \hspace{7pt} $\mathbf{D}\mathbf{B}\mathbf{A}$, \hspace{7pt} $\mathbf{A}(\mathbf{B}+\mathbf{C})$?  For those that are not allowed, explain why. \\
+\textit{Solution.} $\mathbf{DBA}$ and $\mathbf{A(B+C)}$ are the only two that are not allowed. If we consider the dimensions of each matrix in $\mathbf{DBA}$, we see we are basically doing (3x1)(5x3)(3x5). We cannot multiply a 3x1 and a 5x3 together, and so the operation is not allowed. As for $\mathbf{A(B+C)}$, once the $\mathbf{A}$ is distributed, we are essentially trying to add a 3x3 with a 3x1, which does not work, and so the operation is not allowed.
+
+
+\item[S2)] Look at the matrices in problem 2.5.25 (page 91).  (a) Determine if the inverse matrices $\mathbf{A}^{-1}$ and $\mathbf{B}^{-1}$ exist using Gaussian elimination. Explain why or why not an inverse exists.  (b) For each matrix that has an inverse, compute it using Gauss-Jordan elimination. (c) For each inverse in part (b), write the inverse matrix as a product of the elementary matrices.\\
+\textit{Solution.} Even the thought of taking the time to type this one out in \LaTeX \hspace{.5mm} is enough to drive me to drink, so please just see the attached notebook paper for this solution.
+
+\item[S3)] When a zero appears in a  pivot position, $\mathbf{A}=\mathbf{L}\mathbf{U}$ is not possible. \\
+(a) Multiply the matrices on the right sides of each of the following equations. Then, try to solve for each variable (e.g., $d, e, f$, etc) and show that this is impossible.  
+\begin{equation*}
+\mathbf{A}=\left[\begin{array}{cc}  0&1 \\2  &3 \end{array}\right]  = \left[\begin{array}{cc} 1 &0 \\ l & 1\end{array}\right]\left[\begin{array}{cc} d & e\\ 0 & f\end{array}\right], \hspace{30pt} \mathbf{B}= \left[\begin{array}{ccc} 1 & 1 & 0\\ 1 & 1 & 2\\ 1& 2& 1\end{array}\right] = \left[\begin{array}{ccc} 1 & 0 & 0\\ l & 1 &0 \\m &n &1 \end{array}\right]\left[\begin{array}{ccc} d & e & g\\ 0 & f & h\\ 0& 0& k\end{array}\right]
+\end{equation*}
+(b) If a permutation matrix is used, then $\mathbf{PA}$ and $\mathbf{PB}$ can be written in $\mathbf{LU}$ form.  Determine the appropriate permutation matrix for $\mathbf{A}$ and $\mathbf{B}$ and write the products $\mathbf{PA}$ and $\mathbf{PB}$ in their $\mathbf{LU}$ form. \\
+\textit{Solution.}
+	\begin{itemize}
+	\item[a)] $\left[\begin{array}{cc}  0 & 1 \\ 2 & 3 \end{array}\right]= 
+    		   \left[\begin{array}{cc}  d & e \\ ld & le+f \end{array}\right] \Rightarrow d=0$, $e=1$, $ld=2$, which is 			   impossible since $d=0$, making it impossible to solve for $l$. \\
+               $\left[\begin{array}{ccc} 1 & 1 & 0\\ 1 & 1 & 2\\ 1& 2& 1\end{array}\right] = 
+    		   \left[\begin{array}{ccc} d & e & g\\ ld & le+f & lg+h\\ md& me+nf& mg+nh+k\end{array}\right]
+               \Rightarrow d=1$, $e=1$, $g=0$, $f=0$, $l=1$, $m=1$, $h=2$, which implies $me+nf=2 \Rightarrow 					   (1)(1)+0=2$, which is impossible.
+    \item[b)]  $P_A=\left[\begin{array}{cc}  0 & 1 \\ 1 & 0 \end{array}\right]$, so $P_AA=
+    		   \left[\begin{array}{cc}  2 & 3 \\ 0 & 1 \end{array}\right] = LU = 
+               \left[\begin{array}{cc}  1 & 0 \\ 0 & 1 \end{array}\right]\left[\begin{array}{cc}  2 & 3 \\ 0 & 1 				   \end{array}\right]$ \\
+               $P_B=\left[\begin{array}{ccc} 1 & 0 & 0\\ 0 & 0 & 1\\ 0& 1& 0\end{array}\right]$, so 
+               \begin{equation*}
+               P_BB=\left[\begin{array}{ccc} 1 & 1 & 0\\ 1 & 2 & 1\\ 1& 1& 2\end{array}\right]
+               \underset{E_{1}=
+               \left[\begin{array}{ccc}
+               1 & 0 & 0 \\ 
+               -1 & 1 & 0 \\ 
+               -1 & 0 & 1 \end{array}\right]}{\xrightarrow{\hspace{30mm}}}
+               \left[\begin{array}{ccc} 1 & 1 & 0\\ 0 & 1 & 1\\ 0& 0& 2\end{array}\right] = U
+               \end{equation*}
+               $L = \left[\begin{array}{ccc} 1 & 0 & 0\\ 1 & 1 & 0\\ 1& 0& 1\end{array}\right]$, so
+               $P_BB=LU=\left[\begin{array}{ccc} 1 & 0 & 0\\ 1 & 1 & 0\\ 1& 0& 1\end{array}\right]
+               \left[\begin{array}{ccc} 1 & 1 & 0\\ 0 & 1 & 1\\ 0& 0& 2\end{array}\right]$
+               
+	\end{itemize}
+
+\end{itemize}
+
+
+\end{document}
+
+
+CREATE VECTOR
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+
+CREATE EQUATION
+$A = \begin{align}{cc}
+ 1 & 2\\
+3 & 4
+\end{align}$
+
+CREATE EQUATION
+\begin{equation}
+y=x
+\end{equation}
+
+CREATE SYSTEM OF EQUATIONS
+\begin{align}
+y&=x\\
+y&=x
+\end{equation}
+

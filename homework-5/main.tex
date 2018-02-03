@@ -1,0 +1,284 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,setspace,xfrac}
+
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+%%%% In most cases you won't need to edit anything above this line %%%%
+
+\begin{document}
+\hfill Tanner Kvarfordt
+
+\hfill A02052217
+
+\hfill Math 2270
+
+\hfill Assignment \#5
+
+
+\begin{itemize}
+\item[3.2.5)] True or false (with a counterexample if false):
+\begin{itemize}
+\item[a)] A square matrix has no free variables.
+\item[b)] An invertible matrix has no free variables.
+\item[c)] An $m$ by $n$ matrix has no more than $n$ pivot variables.
+\item[d)] An $m$ by $n$ matrix has no more than $m$ pivot variables.
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] False. Consider $
+\left[\begin{array}{ccc}
+1 & 1 & 0 \\
+1 & 1 & 1 \\
+0 & 0 & 1
+\end{array}\right]  
+\underset{E_{21} \text{ where } -l_{21}=-1}{\xrightarrow{\hspace{30mm}}}
+\left[\begin{array}{ccc}
+1 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 1
+\end{array}\right]$. $x_2$ is a free variable.
+\item[b)] True. An invertible $m$ by $n$ matrix must have $n$ pivots, and therefore no free variables.
+\item[c)] True only if $n \leq m$, false otherwise. A matrix can have no more pivots than its minimum dimension, as the minimum dimension determines the number of entries that compose the main diagonal.
+\item[d)] True only if $m \leq n$, false otherwise. See part b for explanation.s
+\end{itemize}
+
+\item[3.2.17)] Construct a matrix whose column space contains $(1,1,5)$ and $(0,3,1)$ and whose nullspace contains $(1,1,2)$.
+
+\textit{Solution.} The matrix, we'll use $A$, needs to have contain the given column vectors and at least one additional column vector such that N$(A)$ contains $(1,1,2)$, so 
+$A = \left[\begin{array}{ccc}
+1 & 0 & x \\
+1 & 3 & y \\
+5 & 1 & z
+\end{array}\right]$, and 
+$A\left[\begin{array}{c}
+1 \\
+1 \\
+2
+\end{array}\right] = \vec{0}$. Performing matrix-vector multiplication, we get
+$\left[\begin{array}{c}
+1+2x \\
+4+2y \\
+6+2z
+\end{array}\right] = \vec{0} \Rightarrow x=\frac{-1}{2}$, $y=-2$, $z=-3$. So
+$A=\left[\begin{array}{ccc}
+1 & 0 & \sfrac{-1}{2} \\
+1 & 3 & -2 \\
+5 & 1 & -3
+\end{array}\right]$.
+
+\item[3.2.39)] Fill out these matrices so that they have rank 1:
+
+\[A=\left[\begin{array}{ccc}
+1 & 2 & 4 \\
+2 &   &   \\
+4 &   &
+\end{array}\right]
+\text{  and  }
+B=\left[\begin{array}{ccc}
+  & 9 &   \\
+1 &   &   \\
+2 & 6 & -3
+\end{array}\right]
+\text{  and  }
+M=\left[\begin{array}{cc}
+a & b \\
+c &   \\
+\end{array}\right]
+\]
+
+\textit{Solution.} In order for these matrices to have rank 1, each must contain only one pivot. The blank values were chosen such that when elimination is performed, there is only one non-zero value below and to the right of the first pivot, thus one pivot, thus rank 1.
+\[A=\left[\begin{array}{ccc}
+1 & 2 & 4 \\
+2 & 4 & 8 \\
+4 & 8 & 16
+\end{array}\right]
+\text{  and  }
+B=\left[\begin{array}{ccc}
+3 & 9 & \sfrac{-9}{2}  \\
+1 & 3 & \sfrac{-3}{2}  \\
+2 & 6 & -3
+\end{array}\right]
+\text{  and  }
+M=\left[\begin{array}{cc}
+a & b \\
+c & \frac{bc}{a} \\
+\end{array}\right]
+\]
+
+\item[3.2.54)] Find the row reduced form $R$ and the rank $r$ of $A$ and $B$. Which are the pivot columns of $A$? What are the special solutions?
+
+\[A=\left[\begin{array}{cccc}
+1 & 1 & 2 & 2 \\
+2 & 2 & 4 & 4  \\
+1 & c & 2 & 2
+\end{array}\right]
+\text{  and  }
+B=\left[\begin{array}{cc}
+1-c &  2 \\
+ 0  & 2-c      
+\end{array}\right]
+\]
+
+\textit{Solution.}
+	\begin{itemize}
+	\item[a)] $A=\left[\begin{array}{cccc}
+			  1 & 1 & 2 & 2 \\
+			  2 & 2 & 4 & 4  \\
+			  1 & c & 2 & 2
+			  \end{array}\right]
+              \underset{E_{21} \text{ where } -l_{21}=-2, -l_{31}=-1}{\xrightarrow{\hspace{36mm}}}
+              \left[\begin{array}{cccc}
+			  1 & 1 & 2 & 2 \\
+			  0 & 0 & 0 & 0  \\
+			  0 & -1+c & 0 & 0
+              \end{array}\right]=R$ \\
+              When $c=1$: rank($A$)=1; the first column of $A$ is its only pivot column; 
+              special solutions of $A$ (found by setting a free variable to 1 and the rest to 0, once for each
+              free variable) are span$\{(-1,1,0,0),(-2,0,1,0),(-2,0,0,1)\}$\\
+              When $c\neq 1$: rank($A$)=2; the first two columns of $A$ are its pivot columns; special solutions of $A$ 
+              are span$\{(-2,0,1,0),(-2,0,0,1)\}$
+    \item[b)] $B$ is already in rref form.\\
+    		  When $c=2$: rank($B$)=1\\
+              When $c=1$: rank($B$)=1\\
+              When $c\neq 1$ and $c\neq 2$: rank($B$)=2
+	\end{itemize}
+
+\item[3.3.21)] Find the complete solution in the form $\mathbf{x_p+x_n}$ to these full rank systems:
+\begin{align*}
+&x+y+z=4 && x+y+z=4\\
+& &&x-y+z=4
+\end{align*}
+
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] 
+	\begin{itemize}
+	\item[1)] $\hat{A}=\left[\begin{array}{cccc}1 & 1 & 1 & 4 \\\end{array}\right]$ (elimination already done)
+    \item[2)] pivot vars: $x$; free vars: $y$, $z$
+    \item[3)] $x_p=(1,1,2)$
+    \item[4)] let $y=1$ and $z=0$ $\Rightarrow x=-1 \Rightarrow n_y=(-1,1,0)$\\
+    		  let $y=0$ and $z=1$ $\Rightarrow x=-1 \Rightarrow n_z=(-1,0,1)$
+    \item[5)] complete solution: $x_p+yn_y+zn_z=(1,1,2)+y(-1,1,0)+z(-1,0,1)$
+	\end{itemize}
+\item[b)]
+	\begin{itemize}
+	\item[1)] $\hat{A}=\left[\begin{array}{cccc}1 & 1 & 1 & 4 \\ 1 & -1 & 1 & 4\end{array}\right]
+    		  \underset{E_{21} \text{ where } -l_{21}=-1}{\xrightarrow{\hspace{30mm}}}
+              \left[\begin{array}{cccc}1 & 1 & 1 & 4 \\ 0 & -2 & 0 & 0\end{array}\right] = \hat{U}
+              \Rightarrow U\vec{x}=\vec{c}$
+    \item[2)] pivot vars: $x$, $y$; free vars: $z$
+    \item[3)] $U\vec{x}=\vec{c} \Rightarrow x_p=(2,0,2)$
+    \item[4)] let $z=1 \Rightarrow x=3$, $y=0 \Rightarrow n_z=(3,0,1)$
+    \item[5)] complete solution: $x_p+zn_z=(2,0,2)+z(3,0,1)$
+	\end{itemize}
+\end{itemize}
+
+
+\item[S1)] Consider the matrix $\mathbf{A}=\left[\begin{array}{ccccc} 2 & 3 & 3 &5 &7\\  2& 3 & 4 &7 &10\\ 0& 0& 1 &2 &3\end{array}\right]$.
+\begin{itemize}
+\item[a)] Reduce the matrix to its ordinary echelon form.
+\item[b)] Find the set of all solutions to $\mathbf{A}\vec{x}=\vec{0}$. 
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $\mathbf{A}=
+\left[\begin{array}{ccccc} 
+2 & 3 & 3 & 5 & 7 \\ 
+2 & 3 & 4 & 7 & 10\\
+0 & 0 & 1 & 2 & 3
+\end{array}\right]
+\underset{E_{21} \text{ where } -l_{21}=-1}{\xrightarrow{\hspace{30mm}}}
+\left[\begin{array}{ccccc} 
+2 & 3 & 3 & 5 & 7 \\ 
+0 & 0 & 1 & 2 & 3 \\
+0 & 0 & 1 & 2 & 3
+\end{array}\right]$\\\\\\$
+\underset{E_{33}=
+\left[\begin{array}{ccc} 
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\
+0 & -1 & 1 
+\end{array}\right]}{\xrightarrow{\hspace{30mm}}}
+\left[\begin{array}{ccccc} 
+2 & 3 & 3 & 5 & 7 \\ 
+0 & 0 & 1 & 2 & 3 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right]$
+\item[b)] N$(\mathbf{A})=$span$\{(\sfrac{-3}{2},1,0,0,0),(\sfrac{1}{2},0,-2,1,0),(1,0,-3,0,1)\}$
+\end{itemize}
+
+\item[S2)] For each of the following, give one example of a matrix $A$ where the number of solutions to $A\vec{x}=\vec{b}$ is:
+\begin{itemize}
+\item[a)] infinite for any $\vec{b}$
+\item[b)] 0 or infinite, depending on the choice of $\vec{b}$
+\item[c)] 1 for any $\vec{b}$
+\item[d)] 0 or 1, depending on the choice of $\vec{b}$
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $A=\left[\begin{array}{ccc} 1 & 0 & 0 \end{array}\right]$
+\item[b)] $A=\left[\begin{array}{cc} 1 & 0 \\ 0 & 0 \end{array}\right]$
+\item[c)] $A=\left[\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right]$
+\item[d)] $A=\left[\begin{array}{c} 1 \\ 0 \\ 0 \end{array}\right]$
+\end{itemize}
+
+\item[S3)] Let $r$=rank$(A)$ for the $m$-by-$n$ matrix $A$.  What are the relations between $r$, $m$, and $n$, if
+\begin{itemize}
+\item[a)] $A\vec{x}=\vec{b}$ has an infinite number of solutions for all $\vec{b}$
+\item[b)] $A\vec{x}=\vec{b}$ has 0 or an infinite number of solutions, depending on the choice of $b$
+\item[c)] $A\vec{x}=\vec{b}$ has exactly 1 solution for any $\vec{b}$
+\item[d)] $A\vec{x}=\vec{b}$ has zero or 1 solution, depending on the choice of $b$ 
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $A$ has full row rank, but not full column rank. $m=r$, and both $m$ and $r$ are less than $n$.
+\item[b)] $A$ has neither full column rank nor full row rank. $r$ is less than both $m$ and $n$.
+\item[c)] $A$ has full column rank and full row rank. $r=n=m$.
+\item[d)] $A$ has full column rank, but not full row rank. $r=n$, and both $n$ and $r$ are less than $m$.
+\end{itemize}
+
+\end{itemize}
+
+\end{document}
+
+
+
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+
+$\left[\begin{array}{cc}  & \\  & \end{array}\right]$
+
+$\left[\begin{array}{ccc}  &  & \\  &  & \\ & & \end{array}\right]$
+
+
+\end{document}
+
+
+CREATE VECTOR
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+
+CREATE EQUATION
+$A = \begin{align}{cc}
+ 1 & 2\\
+3 & 4
+\end{align}$
+
+CREATE EQUATION
+\begin{equation}
+y=x
+\end{equation}
+
+CREATE SYSTEM OF EQUATIONS
+\begin{align}
+y&=x\\
+y&=x
+\end{equation}
+

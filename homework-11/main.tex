@@ -1,0 +1,248 @@
+% pdflatex Homework11.tex; evince Homework11.pdf & 
+
+\documentclass[12pt,pdftex]{article}
+
+\usepackage{amsmath,amsthm,setspace,xfrac,graphicx,natbib,color}
+
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+\begin{document}
+
+\hfill Tanner Kvarfordt
+
+\hfill Math 2270
+
+\hfill Assignment \#11
+
+\begin{itemize}
+\item[6.4.6)] Find an orthogonal matrix $Q$ that diagonalizes 
+$A=\begin{bmatrix}
+-2 & 6 \\ 6 & 7
+\end{bmatrix}$. What is $\Lambda$?
+
+\textit{Solution.}
+$|A-\lambda I|= \left|\begin{matrix}
+-2 - \lambda & 6 \\ 6 7 -\lambda
+\end{matrix}\right|=\lambda^2-5\lambda-50=(\lambda-10)(\lambda+5)=0\Rightarrow\lambda=10,-5$
+ $(A-5I)\vec{x}=\vec{0}\Rightarrow\begin{bmatrix}
+3 & 6 \\ 6 & 12
+\end{bmatrix}\vec{x}=\vec{0}\longrightarrow\begin{bmatrix}
+3 & 6 \\ 0 & 0
+\end{bmatrix}\vec{x}=\vec{0}\Rightarrow$ free variable $x_2=1\Rightarrow x_1=-2$ \\
+$\Rightarrow\vec{v}_{-5}=\begin{bmatrix}-2 \\ 1\end{bmatrix}$. Since $A$ is symmetric, $\vec{v}_{10}$ is any vector 
+that is orthogonal to $\vec{v}_{-5}$, so $\vec{v}_{10}=\begin{bmatrix}1 \\ 2\end{bmatrix}$. Since $A$ is symmetric,
+we can choose orthonormal eigenvectors. Therefore 
+$\vec{q}_1=\begin{bmatrix}\sfrac{-2}{\sqrt[]{5}} \\ \sfrac{1}{\sqrt[]{5}}\end{bmatrix}$ and 
+$\vec{q}_2=\begin{bmatrix}\sfrac{1}{\sqrt[]{5}} \\ \sfrac{2}{\sqrt[]{5}}\end{bmatrix}$. Therefore
+$Q=\begin{bmatrix}\vec{q}_1 & \vec{q}_2\end{bmatrix}$ and 
+$\Lambda=\begin{bmatrix}-5 & 0 \\ 0 & 10\end{bmatrix}$.
+
+\item[6.4.9)] \begin{itemize} 
+\item[a)] Find a symmetric matrix $\begin{bmatrix} 1 & b \\ b & 1 \end{bmatrix}$ that has a negative eigenvalue.
+\item[b)] How do you know it must have a negative pivot?
+\item[c)] How do you know it can't have two negative eigenvalues?
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $\left|\begin{matrix}1-\lambda & b \\ b & 1-\lambda\end{matrix}\right|=
+			\lambda^2-2\lambda+1-b^2=0\Rightarrow
+            \lambda=\frac{2\pm\sqrt[]{4-4+4b^2}}{2}=\frac{2\pm2b}{2}=1\pm b$ so if $|b|>1$ then the matrix will have a
+            negative eigenvalue.
+\item[b)] Because the pivots have the same signs as the eigenvalues, we know that the matrix must have a negative pivot and a positive pivot.
+\item[c)] The fact that the eigenvalues are $1\pm b$ with $|b|>1$ guarantees one eigenvalue to be positive and one
+			eigenvalue to be negative.
+\end{itemize}
+
+\item[6.5.18)] If $Sx=\lambda x$ then $x^TSx=\rule{1cm}{0.15mm}$. Why is this number positive when $\lambda>0$?
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $x^TSx=\lambda x^Tx$
+\item[b)] If $S$ is positive definite, then all eigenvalues of $S$ are greater than zero. That is, \\
+		$\lambda=\frac{x^TSx}{x^Tx} > 0$.
+\end{itemize}
+
+\item[6.5.28)] Without multiplying $S=
+				\begin{bmatrix}
+				\cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+				\end{bmatrix}
+                \begin{bmatrix}
+                2 & 0 \\ 0 & 5
+                \end{bmatrix}
+                \begin{bmatrix}
+                \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta
+                \end{bmatrix}$, find
+                \begin{itemize}
+                \item[a)] the determinant of $S$
+				\item[b)] the eigenvalues of $S$
+				\item[c)] the eigenvectors of $S$
+                \item[d)] a reason why $S$ is symmetric positive definite
+                \end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $|S|=|U\Sigma V^T|=|U||\Sigma||V^T|=(\cos^2\theta+\sin^2\theta)(10)(\cos^2\theta+\sin^2\theta)=(1)(10)(1)=10$
+\item[b)] $\lambda=2,5$ since the eigenvalues of $S$ make up the diagonal entries of $\Lambda$.
+\item[c)] The eigenvectors of $S$ make up the columns of $X$ in $X\Lambda X^{-1}$, so the eigenvectors of $S$ are
+			$(\cos\theta, \sin\theta)$ and $(-\sin\theta, \cos\theta)$.
+\item[d)] All eigenvalues of $S$ are positive, and so $S$ is symmetric positive definite.
+\end{itemize}
+
+\item[7.2.4)] Compute $A^TA$ and $AA^T$ and their eigenvalues and unit eigenvectors for $V$ and $U$.
+\[A=\begin{bmatrix}1 & 1 & 0 \\ 0 & 1 & 1\end{bmatrix}\]
+Check $AV=U\Sigma$ (this decides $\pm$ signs in $U$). $\Sigma$ has the same shape as $A$: $2 \times 3$.
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $A^TA=\begin{bmatrix}
+			1 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 1
+			\end{bmatrix}$
+\item[b)] $AA^T=\begin{bmatrix}
+			2 & 1 \\ 1 & 2
+			\end{bmatrix}$
+\item[c)] $|A^TA-\lambda I|=(-1)^5\left|\begin{bmatrix}
+			1-\lambda & 0 \\ 1 & 1
+			\end{bmatrix}\right|+(-1)^6(1-\lambda)\begin{bmatrix}
+			1 - \lambda & 1 \\ 1 & 2 - \lambda
+			\end{bmatrix}=(-1)(\lambda^3-4\lambda^2+3\lambda)$\\
+            $=(-1)(\lambda)(\lambda-3)(\lambda-1)\Rightarrow\lambda=0,1,3$\\
+            N$(A^TA-0I)=$N$(A^TA)\Rightarrow\begin{bmatrix}1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 0\end{bmatrix}\vec{x}=\vec{0}$
+            free variable $x_3=1\Rightarrow x_1=1,x_2=-1$ so 
+            $\vec{w}_1=\begin{bmatrix} 1 \\ -1 \\ 1\end{bmatrix}$.
+            Since $A^TA$ is symmetric, its eigenvectors are all orthogonal, so let 
+            $\vec{w}_2=\begin{bmatrix}-1 \\ 0 \\ 1\end{bmatrix}$ and 
+            $\vec{w}_3=\begin{bmatrix}1 \\ 2 \\ 1\end{bmatrix}$. However, we want orthonormal eigenvectors, therefore
+            $\vec{v}_1=
+            	\begin{bmatrix}\sfrac{1}{\sqrt[]{3}} \\ \sfrac{-1}{\sqrt[]{3}} \\ \sfrac{1}{\sqrt[]{3}}\end{bmatrix}$,
+            $\vec{v}_2=
+            	\begin{bmatrix}\sfrac{-1}{\sqrt[]{2}} \\ 0 \\ \sfrac{1}{\sqrt[]{2}}\end{bmatrix}$,
+            $\vec{v}_3=
+            	\begin{bmatrix}\sfrac{1}{\sqrt[]{6}} \\ \sfrac{2}{\sqrt[]{6}} \\ \sfrac{1}{\sqrt[]{6}}\end{bmatrix}$
+\item[d)] $|AA^T-\lambda I|=\left|\begin{matrix}
+			2-\lambda & 1 \\ 1 & 2-\lambda
+			\end{matrix}\right|=\lambda^2-4\lambda+3=(\lambda-3)(\lambda-1)=0\Rightarrow\lambda=3,1$\\
+            N$(AA^T-1I)\Rightarrow\begin{bmatrix}1 & 1 \\ 1 & 1\end{bmatrix}\vec{x}=\vec{0}\longrightarrow
+            \begin{bmatrix}1 & 1 \\ 0 & 0\end{bmatrix}\vec{x}=\vec{0}\Rightarrow$ free variable $x_2=1\Rightarrow
+            x_1=-1\Rightarrow \vec{w}_1=\begin{bmatrix}-1 \\ 1\end{bmatrix}$. Since $AA^T$ is symmetric, its eigenvectors are 
+            orthogonal. Therefore let $\vec{w}_2=\begin{bmatrix}1 \\ 1\end{bmatrix}$. However, we want orthonormal 
+            eigenvectors, therefore $\vec{u}_1=\begin{bmatrix}\sfrac{-1}{\sqrt[]{2}} \\ \sfrac{1}{\sqrt[]{2}}\end{bmatrix}$ 
+            and $\vec{u}_2=\begin{bmatrix}\sfrac{1}{\sqrt[]{2}} \\ \sfrac{1}{\sqrt[]{2}}\end{bmatrix}$ 
+\item[e)] $A\vec{v}_1=\vec{0}\Rightarrow \sigma_1=0$\\
+			$A\vec{v}_2=\begin{bmatrix}\frac{-1}{\sqrt[]{2}} \\ \frac{1}{\sqrt[]{2}}\end{bmatrix}
+            \Rightarrow \sigma_2=1$\\
+            $A\vec{v}_3=\begin{bmatrix}\frac{3}{\sqrt[]{6}} \\ \frac{3}{\sqrt[]{6}}\end{bmatrix}
+            \Rightarrow \sigma_3=\frac{3}{\sqrt[]{3}}$\\
+            Therefore $AV=U\Sigma=\begin{bmatrix}
+            0 & \sfrac{-1}{\sqrt[]{2}} & \sfrac{3}{\sqrt[]{6}} \\
+            0 & \sfrac{1}{\sqrt[]{2}} & \sfrac{3}{\sqrt[]{6}}
+            \end{bmatrix}$
+\end{itemize}
+
+\item[7.2.14)] Suppose $\vec{u_1},\dots,\vec{u}_n$ and $\vec{v_1},\dots,\vec{v}_n$ are orthonormal bases for $\mathbf{R}^n$. Construct the matrix $A=U \Sigma V^T$ that transforms each $\vec{v}_j$ into $\vec{u}_j$ to give
+$A\vec{v}_1=\vec{u}_1,\dots,A\vec{v}_n=\vec{u}_n$.
+
+\textit{Solution.}
+$U$ is the matrix whose columns are $\vec{u_1},\dots,\vec{u}_n$ and $V$ will be the matrix whose columns are $\vec{v_1},\dots,\vec{v}_n$. The condition where $A\vec{v}_1=\vec{u}_1,\dots,A\vec{v}_n=\vec{u}_n$ states that $AV=U$, and therefore $A=UV^{-1}=UV^T$ since $V$ has orthonormal columns. Therefore $A=UIV^T\Rightarrow\Sigma=I$.
+
+\end{itemize}
+
+\noindent \textbf{Problem S1}:  What is the closest rank-one approximation to 
+the matrix $A$ from problem 7.2.4?
+\[A=\begin{bmatrix}1 & 1 & 0 \\ 0 & 1 & 1\end{bmatrix}\]
+\textit{Solution.}
+$\vec{u}_1\sigma_1\vec{v}_1^T=
+\begin{bmatrix}
+\sfrac{1}{\sqrt[]{2}} \\ \sfrac{1}{\sqrt[]{2}}
+\end{bmatrix}
+\frac{3}{\sqrt[]{3}}
+\begin{bmatrix}
+\sfrac{1}{\sqrt[]{6}} & \sfrac{2}{\sqrt[]{6}} & \sfrac{1}{\sqrt[]{6}}
+\end{bmatrix}=
+\begin{bmatrix}
+\sfrac{1}{2} & 1 & \sfrac{1}{2} \\
+\sfrac{1}{2} & 1 & \sfrac{1}{2}
+\end{bmatrix}$
+
+\noindent \textbf{Problem S2}: Consider the SVD of $\mathbf{A}$:\\
+$\mathbf{A} = \mathbf{U\Sigma V^T} = \left[\begin{array}{cccc} 0.57 & -0.821 & 
+0\\ 0.367 & 0.255 & -0.894 \\ 0.734 & 0.51 & 0.447 
+\end{array}\right]\left[\begin{array}{cccc} 5.41 & 0 & 0 & 0\\ 0 & 0.826 &0 & 
+0\\0 &0 &0 & 0\end{array}\right]\left[\begin{array}{cccc} 0.445 & 0.55 & 0.445 &
+0.55 \\ 0.55 & -0.445 & 0.55 & -0.445 \\ 0 & -\sqrt{2}/2 & 0 & \sqrt{2}/2\\ 
+-\sqrt{2}/2 & 0 & \sqrt{2}/2 & 0\end{array}\right]$
+\begin{itemize}
+\item[(a)] What is the rank of $\mathbf{A}$?
+\item[(b)] Give bases for $\mathcal{C}(\mathbf{A})$, $\mathcal{N}(\mathbf{A})$, 
+$\mathcal{C}(\mathbf{A^T})$, and $\mathcal{N}(\mathbf{A^T})$.
+\end{itemize}
+
+\textit{Solution.}
+Consider $\mathbf{A}$ to be $m\times n$. Let $\vec{u}_j$ where $0<j<m$ to denote a column vector of $U$.
+Let $\vec{v}_i$ where $0<i<n$ denote a row vector of $V^T$ (or a column vector of $V$).
+\begin{itemize}
+\item[a)] r$(A)=2$
+\item[b)] basis of $\mathcal{C}(\mathbf{A})=\{\vec{u}_1,\vec{u}_2\}$\\
+		  basis of $\mathcal{N}(\mathbf{A})=\{\vec{v}_3,\vec{v}_4\}$\\
+          basis of $\mathcal{C}(\mathbf{A^T})=\{\vec{v}_1,\vec{v}_2\}$
+          basis of $\mathcal{N}(\mathbf{A^T})=\{\vec{u}_3\}$
+\end{itemize}
+
+\noindent \textbf{Problem S3}:  Answer the following prompts.  Be sure to 
+justify your answer for each one. 
+\begin{itemize}
+\item[(a)] If $A$ is positive definite then the trace of $A$ is 
+\underline{\hspace{50pt}}
+\item[(b)] If $A$ is semi-positive definite then the determinant of $A$ is 
+\underline{\hspace{50pt}}
+\item[(c)] Let $\left\{\vec{c}_1, \vec{c}_2\right\}$, $\left\{\vec{r}_1, 
+\vec{r}_2\right\}$, $\left\{\vec{n}_1, \vec{n}_2\right\}$, and $\left
+\{\vec{l}_1, \vec{l}_2\right\}$ be bases for $\mathcal{C}(A)$, $\mathcal{C}
+(A^\text{T})$, $\mathcal{N}(A)$, and $\mathcal{N}(A^\text{T})$, respectively.  
+Determine bases for the column space, row space, nullspace and left nullspace of
+$A^\text{T}A$. 
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] The trace of $A$ positive since $A$ has all positive eigenvalues.
+\item[b)] The determinant of $A$ is non-negative since it has all non-negative eigenvalues.
+\item[c)]
+\end{itemize}
+
+\noindent \textbf{Problem S4}:
+\begin{itemize}
+\item[(a)] If $\mathbf{A}$ is symmetric and positive definite, what is its 
+singular value decomposition?  (Hint: $\mathbf{U\Sigma V^T}$ simplifies to 
+another decomposition we have learned in this course.)
+\item[(b)] Compute the singular value decomposition for $\mathbf{A}= 
+\left[\begin{array}{cc} 2 &1\\ 1 & 2\end{array}\right]$.
+\item[(c)] Does the SVD have the same form as your answer (a)? 
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $A=Q\Lambda Q^{-1}$
+\item[b)] $A^TA=\left|\begin{matrix}5-\lambda & 4 \\ 4 & 5-\lambda\end{matrix}\right|=\lambda^2-10\lambda+9
+			=(\lambda-9)(\lambda-1)=0\Rightarrow\lambda=9,1$\\
+            N$(A^TA-1I)\Rightarrow\vec{w}_1=(-1,1)$. Since $A^TA$ is symmetric, it has orthogonal eigenvectors.
+            Therefore let $\vec{w}_2=(1,1)$. However, we want orthonormal vectors, therefore
+            $\vec{v}_1=(\sfrac{-1}{\sqrt[]{2}},\sfrac{1}{\sqrt[]{2}})$ 
+            and $\vec{v}_2=(\sfrac{1}{\sqrt[]{2}},\sfrac{1}{\sqrt[]{2}})$.
+            $A\vec{v}_1=\sigma_1\vec{u}_1\Rightarrow\sigma_1=1,\vec{u}_1=(\sfrac{-1}{\sqrt[]{2}},\sfrac{1}{\sqrt[]{2}})$\\
+            $A\vec{v}_2=\sigma\vec{u}_2\Rightarrow\sigma_2=3,\vec{u}_2=(\sfrac{1}{\sqrt[]{2}},\sfrac{1}{\sqrt[]{2}})$\\
+            Therefore $A=U\Sigma V^T=\begin{bmatrix}
+            \vec{u}_1 & \vec{u}_2
+            \end{bmatrix}\begin{bmatrix}
+            1 & 0 \\ 0 & 3
+            \end{bmatrix}\begin{bmatrix}
+            \vec{v}_1 & \vec{v}_2
+            \end{bmatrix}^T$
+\item[c)] Yes.
+\end{itemize}
+
+\end{document}

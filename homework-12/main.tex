@@ -1,0 +1,297 @@
+% pdflatex Homework12.tex; evince Homework12.pdf & 
+\documentclass[12pt,pdftex]{article}
+\usepackage{amsmath,amsthm,amsfonts,setspace,graphicx,natbib,color,xfrac,gensymb}
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+\begin{document}
+
+\hfill Tanner Kvarfordt 
+
+\hfill A02052217
+
+\hfill Math 2270
+
+\hfill Assignment \#12
+
+\begin{itemize}
+\item[8.1.7)] For these transformations of $V=R^2$ to $W=R^2$, find $T(T(\vec{v}))$. Show that when $T(\vec{v})$ is linear, then also $T(T(\vec{v}))$ is linear.
+\begin{itemize}
+\item[a)] $T(\vec{v})=-\vec{v}$
+\item[b)] $T(\vec{v})=\vec{v}+(1,1)$
+\item[c)] $T(\vec{v})=90\degree$ rotation $=(-v_2, v_1)$
+\item[d)] $T(\vec{v})=$projection$=\frac{1}{2}(v_1+v_2, v_1+v_2)$
+\end{itemize}
+
+\textit{Solution.}
+If a transformation is linear, that property holds regardless of input, so if $T(\vec{v})$ is linear, then 
+$T(T(\vec{v}))$ will also be linear.
+\begin{itemize}
+\item[a)] $T(T(\vec{v}))=\vec{v}$ \\
+			$T(c\vec{v}_1+d\vec{v}_2)=-c\vec{v}_1-d\vec{v}_2=cT(\vec{v}_1)+dT(\vec{v}_2)$ shows that $T(\vec{v})$ is linear.
+\item[b)] $T(T(\vec{v}))=\vec{v}+(2,2)$ \\
+			$T(c\vec{v}_1+d\vec{v}_2)=c\vec{v}_1+d\vec{v}_2+(1,1) \neq
+            cT(\vec{v}_1)+dT(\vec{v}_2)=c(\vec{v}_1+(1,1))+d(\vec{v}_2+(1,1))$ shows that $T(\vec{v})$ is not linear.
+\item[c)] $T(T(\vec{v}))=(-v_1,-v_2)$ \\
+			$T(c\vec{v}+d\vec{w})=\begin{bmatrix}
+			-cv_2-dw_2 \\ cv_1+dw_1
+			\end{bmatrix} = c\begin{bmatrix}
+			-v_2 \\ v_1
+			\end{bmatrix}+d\begin{bmatrix}
+			-w_2 \\ w_1
+			\end{bmatrix}=cT(\vec{v})+dT(\vec{w})$ shows that $T(\vec{v})$ is linear.
+\item[d)] $T(T(\vec{v}))=\frac{1}{4}\begin{bmatrix}
+			2(v_1+v_2) \\ 2(v_1+v_2)
+			\end{bmatrix} = \frac{1}{2}\begin{bmatrix}
+			v_1+v_2 \\ v_1+v_2
+			\end{bmatrix}$ \\
+            $T(c\vec{v}+d\vec{w})=\frac{1}{2}\begin{bmatrix}
+            cv_1+dw_1+cv_2+dw_2 \\ cv_1+dw_1+cv_2+dw_2
+            \end{bmatrix} = \frac{1}{2}c\begin{bmatrix}
+            v_1+v_2 \\ v_1+v_2
+            \end{bmatrix}+\frac{1}{2}d\begin{bmatrix}
+            w_1+w_2 \\ w_1+w_2
+            \end{bmatrix}=cT(\vec{v})+dT(\vec{w})$ shows that $T(\vec{v})$ is linear.
+\end{itemize}
+
+\item[8.1.8)] Find the range and kernel (like the column space and nullspace) of $T$:
+\begin{itemize}
+\item[a)] $T(v_1,v_2)=(v_1-v_2,0)$
+\item[b)] $T(v_1,v_2,v_3)=(v_1,v_2)$
+\item[c)] $T(v_1,v_2)=(0,0)$
+\item[d)] $T(v_1,v_2)=(v_1,v_1)$
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] range: span$\{(1, 0)\}$\\
+			kernel: When $v_1=v_2$, or $\{(x,x)\}$ where $x$ is any real number.
+\item[b)] range: $\mathbb{R}^2$\\
+			kernel: span$\{(0,0,1)\}$
+\item[c)] range: $\{(0,0)\}$\\
+			kernel: $\mathbb{R}^2$
+\item[d)] range: span$\{(1,1)\}$\\
+			kernel: span$\{(0,1)\}$
+\end{itemize}
+
+\item[8.2.1)] The transformation $S$ takes the second derivative. Keep $1,x,x^2,x^3$ as the input basis 
+				$v_1,v_2,v_3,v_4$ and also as output basis $w_1,w_2,w_3,w_4$. Write $S(v_1),S(v_2),S(v_3),S(v_4)$ in terms
+                of the $w$'s. Find the 4 by 4 matrix $A$ for $S$.
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $v_1,v_2,v_3,v_4=w_1,w_2,w_3,w_4=1,x,x^2,x^3$\\
+		$\Rightarrow S(v_1)=S(v_2)=0$, $S(v_3)=2w_1=2$, $S(v_4)=6w_2=6x$
+\item[b)] Consider vectors in $\mathcal{P}_i$ to be represented in $\mathbb{R}^i$ as $\begin{bmatrix}
+			\text{coef on } x^0 \\ \text{coef on } x^1 \\ \vdots \\ \text{coef on } x^{i - 1} \\ \text{coef on } x^i
+			\end{bmatrix}$. Therefore, using the the outputs given in part (a), the matrix is $A=\begin{bmatrix}
+			0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 6 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0
+			\end{bmatrix}$
+\end{itemize}
+
+\item[8.2.10)] Suppose $T(v_1)=w_1+w_2+w_3$ and $T(v_2)=w_2+w_3$ and $T(v_3)=w_3$. Find the matrix $A$ for $T$ using these basis vectors. What input vector $v$ gives $T(v)=w_1$?
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] Using $\vec{w}$ as the output vector, $A$ can be constructed by using each output as a column. So 
+			$A=\begin{bmatrix}
+			1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1
+			\end{bmatrix}$.
+\item[b)] To get output $(1,0,0)$, $\vec{v}=(1,-1,0)$. $A\vec{v}=(1,0,0)$
+\end{itemize}
+
+\item[8.2.26)] Suppose $v_1,v_2,v_3$ are eigenvectors for $T$. This means $T(v_i)=\lambda_iv_i$ for $i=1,2,3$. What is the matrix for $T$ when the input and output bases are the $v$'s?
+
+\textit{Solution.} 
+$T(v_i)=\lambda_iv_i \Rightarrow Av_i=\lambda_iv_i \Rightarrow 11A=\Lambda= \begin{bmatrix}
+\lambda_1 & 0 & 0 \\ 0 & \lambda_2 & 0 \\ 0 & 0 & \lambda_3
+\end{bmatrix}$
+
+\item[7.4.18)] Find $A^+$ and $A^+A$ and $AA^+$ and $x^+$ for this matrix $A=U\Sigma V^T$ and these $b$:
+\[A=\begin{bmatrix}
+3 \\ 4
+\end{bmatrix}=\begin{bmatrix}
+0.6 & -0.8 \\ 0.8 & 0.6
+\end{bmatrix}\begin{bmatrix}
+5 \\ 0
+\end{bmatrix}\begin{bmatrix}
+1
+\end{bmatrix}\]
+\[b=\begin{bmatrix}
+3 \\ 4
+\end{bmatrix} \text{ and } b= \begin{bmatrix}
+-4 \\ 3
+\end{bmatrix}\]
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $A^+=\begin{bmatrix}
+			1
+			\end{bmatrix}
+			\begin{bmatrix}
+			\frac{1}{5} & 0
+			\end{bmatrix}\begin{bmatrix}
+			\sfrac{3}{5} & \sfrac{4}{5} \\ \sfrac{-4}{5} & \sfrac{3}{5}
+			\end{bmatrix}=\begin{bmatrix}
+			\sfrac{3}{25} & \sfrac{4}{25}
+			\end{bmatrix}$
+\item[b)] $A^+A=1$
+\item[c)] $AA^+=\begin{bmatrix}
+			\sfrac{9}{25} & \sfrac{12}{25} \\ \sfrac{12}{25} & \sfrac{6}{25}
+			\end{bmatrix}$
+\item[d)] $x^+=A^+\begin{bmatrix}
+			3 \\ 4
+			\end{bmatrix}=1$
+\item[e)] $x^+=A^+\begin{bmatrix}
+			-4 \\ 3
+			\end{bmatrix}=0$
+\end{itemize}
+
+\end{itemize}  
+
+\noindent \textbf{Problem S1}: Consider the matrix $A=\left(\begin{array}{cc} 1 
+& 2\\ 3 & 6\end{array}\right)$. 
+\begin{itemize}
+\vspace{-10pt}
+\item[(a)] Compute the pseudoinverse $A^+$.  
+\item[(b)] As in Problem 4b from Exam 2, draw the four fundamental subspaces of 
+$A$ on two 2D graphs.  Each plot should contain exactly two orthogonal 
+subspaces. Be sure to label each subspace.
+\item[(c)] On the appropriate graph from part (b), draw a vector $\vec{b}$ that 
+is a linear combination of vectors in $\mathcal{C}(A^T)$ and $\mathcal{N}(A)$.  
+Draw a second vector that shows which subspace $A\vec{b}$ is in.
+\item[(d)] On the appropriate graph from part (b), draw a vector $\vec{c}$ that 
+is a linear combination of vectors in $\mathcal{C}(A)$ and $\mathcal{N}(A^T)$.  
+Draw a second vector that shows which subspace $A^+\vec{c}$ is in.\\
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $|A^TA-\lambda I|=\lambda(\lambda-50)=0\Rightarrow\lambda=0,50$ \\
+			$(A^TA-50\lambda)\vec{x}=\vec{0}\longrightarrow \begin{bmatrix}
+			-40 & 20 \\ 0 & 0
+			\end{bmatrix}\vec{x}=\vec{0}$ free var $x_2=1 \\ 
+            \Rightarrow x_1=\frac{1}{2} \Rightarrow \vec{w}_1=(\frac{1}{2}, 1)
+            \Rightarrow\vec{v}_1=\begin{bmatrix}\sfrac{1}{\sqrt[]{5}} \\ \sfrac{2}{\sqrt[]{5}}\end{bmatrix}$ \\
+            Since $V$ has orthonormal columns, 
+            infer $\vec{v}_2=\begin{bmatrix}
+            \frac{-2}{\sqrt[]{5}} \\ \frac{1}{\sqrt[]{5}}
+            \end{bmatrix}$ \\
+            $A\vec{v}_1=\sigma_1\vec{u}_1=\begin{bmatrix}
+            \sfrac{5}{\sqrt[]{5}} \\ \sfrac{15}{\sqrt[]{5}}
+            \end{bmatrix}=\sqrt[]{50}\begin{bmatrix}
+            \frac{1}{\sqrt[]{10}} \\ \frac{3}{\sqrt[]{10}}
+            \end{bmatrix}$ Since $U$ has orthonormal columns, 
+            infer $\vec{u}_2=\begin{bmatrix}
+            \frac{-3}{\sqrt[]{10}} \\ \frac{1}{\sqrt[]{10}}
+            \end{bmatrix}$ \\
+            Therefore $A=U\Sigma V^T=\begin{bmatrix}
+            \frac{1}{\sqrt[]{10}} & \frac{-3}{\sqrt[]{10}} \\ \frac{3}{\sqrt[]{10}} & \frac{1}{\sqrt[]{10}}
+            \end{bmatrix} \begin{bmatrix}
+            \sqrt[]{50} & 0 \\ 0 & 0
+            \end{bmatrix}\begin{bmatrix}
+            \sfrac{1}{\sqrt[]{5}} & \sfrac{2}{\sqrt[]{5}} \\ \sfrac{-2}{\sqrt[]{5}} & \sfrac{1}{\sqrt[]{5}}
+            \end{bmatrix}$ \\
+            Therefore $A^+=V\Sigma^+U^T=\begin{bmatrix}
+            \sfrac{1}{\sqrt[]{5}} & \sfrac{-2}{\sqrt[]{5}} \\ \sfrac{2}{\sqrt[]{5}} & \sfrac{1}{\sqrt[]{5}}
+            \end{bmatrix}\begin{bmatrix}
+            \frac{1}{\sqrt[]{50}} & 0 \\ 0 & 0
+            \end{bmatrix}\begin{bmatrix}
+            \frac{1}{\sqrt[]{10}} & \frac{3}{\sqrt[]{10}} \\ \frac{-3}{\sqrt[]{10}} & \frac{1}{\sqrt[]{10}}
+            \end{bmatrix}$
+\item[b)] See attached paper.
+\item[c)] See attached paper.
+\item[d)] See attached paper.
+\end{itemize}
+
+\noindent \textbf{Problem S2}: This question focuses on the subspace 
+$\mathcal{S} = \left\{ n\cos(x)+m\sin(x)\right\}$.  This subspace is composed of
+all linear combinations of $\cos(x)$ and $\sin(x)$.  
+\begin{itemize}
+\item[(a)] Find a basis for $\mathcal{S}$.  (Show your work. Hint: This problem 
+is similar to problems on $\mathcal{P}_2$.)
+\item[(b)] Consider the derivative operator $d/dx$.  Determine the range and 
+kernel for the derivative transformation when applied to $\mathcal{S}$. 
+\item[(c)] Create the matrix representation for the derivative transformation 
+when applied to $\mathcal{S}$.  
+\item[(d)] Repeat parts (b) and (c) for the integral transformation $\int 
+f(x)dx$ where the integration constant is always set to 0. \\
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] A basis for $\mathcal{S}$ is 
+			$\left\{\begin{bmatrix} \cos x \\ \sin x\end{bmatrix}\right\}$. It is the only vector, and so must be linearly independent.
+            It is also a spanning set of $\mathcal{S}$ as stated in the prompt.
+\item[b)] $T(v)=-n\sin x + m \cos x \Rightarrow$ range: $-n-m$ to $m+n$ inclusive. 
+			kernel: $m=n=0$
+\item[c)] $T=\begin{bmatrix}
+			0 & -1 \\ 1 & 0
+			\end{bmatrix}$
+\item[d)] $T(v)=n\sin x + m \cos x \Rightarrow T=\begin{bmatrix}
+0 & 1 \\ -1 & 0
+\end{bmatrix}$ with the same range and kernel as the derivative transformation.
+\end{itemize}
+
+\noindent \textbf{Problem S3}: Consider the linear transformation $T: 
+\mathcal{R}^4\rightarrow\mathcal{R}^3$ from the non-standard basis  $\left\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\right\}$ of $\mathcal{R}^4$ to the 
+non-standard basis $\left\{\vec{w}_1, \vec{w}_2, \vec{w}_3\right\}$ of 
+$\mathcal{R}^3$ defined by $T(\vec{v}_1) = \sqrt{2}\vec{w}_1$, $T(\vec{v}_2) 
+= \sqrt{8}\vec{w}_2$, $T(\vec{v}_3) = \vec{0}$, and $T(\vec{v}_4) = \vec{0}$.  
+The non-standard bases are defined by \\
+$\left\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\right\}=\left\{ 
+\left[\begin{array}{c}1/2\\ -1/2\\ 1/2\\ -1/2 
+\end{array}\right],\left[\begin{array}{c}1/2\\ 1/2\\ 1/2\\ 1/2 
+\end{array}\right],\left[\begin{array}{c} -1/\sqrt{2}\\ 
+0 \\1/\sqrt{2}\\0\end{array}\right],\left[\begin{array}{c} 0\\1/\sqrt{2} \\ 0\\ 
+-1\sqrt{2}\end{array}\right]  \right\}$ \\
+$\left\{\vec{w}_1, \vec{w}_2, \vec{w}_3\right\}=\left\{ \left[\begin{array}{c}-
+1/\sqrt{2}\\ 1/\sqrt{2}\\ 0\end{array}\right],\left[\begin{array}{c}1/\sqrt{2}\\
+1/\sqrt{2}\\ 0 \end{array}\right],\left[\begin{array}{c} 0\\ 0\\ 
+1\end{array}\right] \right\} $ 
+\begin{itemize}
+\item[(a)] What is the matrix representation of $T$.
+\item[(b)] Using changes of bases matrices, construct a new linear 
+transformation $S$ that converts vectors in the standard basis of 
+$\mathcal{R}^4$ to the non-standard basis, applies $T$, and then converts the 
+vectors to the standard basis of $\mathcal{R}^3$. Write the matrix 
+representation of $S$ as a product of matrices. 
+\item[(c)] What is the rank-1 approximation of the matrix representation of $S$?
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] Based on the outputs of $T(v_i)$ with $1\leq i \leq 4$, $T=\begin{bmatrix}
+			\sqrt[]{2} & 0 & 0 & 0 \\
+            0 & \sqrt[]{8} & 0 & 0 \\
+            0 & 0 & 0 & 0
+			\end{bmatrix}$
+\item[b)] Based on the shortcuts provided in class, $V$ be the change of basis matrix from standard basis to non-standard basis in $\mathcal{R}^4$ with rows made up of each $v$ vector. Let $W$ be the change of basis matrix from non-standard basis to standard basis in $\mathcal{R}^3$ with columns made up of the $w$ vectors. 
+Then $S=WTV=\begin{bmatrix}
+\vec{w}_1 & \vec{w}_2 & \vec{w}_3
+\end{bmatrix}
+T
+\begin{bmatrix}
+\vec{v}_1^T \\ \vec{v}_2^T \\ \vec{v}_3^T \\ \vec{v}_4^T
+\end{bmatrix}$.
+\item[c)] Notice that $S=WTV$ is the SVD of $S$. Therefore a rank one approximation of $S$ is 
+$\begin{bmatrix}
+\frac{1}{\sqrt[]{2}} \\ \frac{1}{\sqrt[]{2}} \\ 0
+\end{bmatrix}
+\sqrt[]{8}
+\begin{bmatrix}
+\frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+\end{bmatrix}=\begin{bmatrix}
+1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 1 \\
+0 & 0 & 0 & 0
+\end{bmatrix}$
+\end{itemize}
+
+\end{document}
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+$\left[\begin{array}{cc}  & \\  & \end{array}\right]$
+$\left[\begin{array}{ccc}  &  & \\  &  & \\ & & \end{array}\right]$

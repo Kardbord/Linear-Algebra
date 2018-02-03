@@ -1,0 +1,252 @@
+% pdflatex Homework8.tex; evince Homework8.pdf & 
+
+
+\documentclass[12pt,pdftex]{article}
+\usepackage{amsmath,amsthm,amssymb,setspace,graphicx,natbib,color,xfrac}
+
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+
+\begin{document}
+
+\hfill Tanner Kvarfordt
+
+\hfill A02052217
+
+\hfill Math 2270
+
+\hfill Assignment \#8
+
+
+\begin{itemize}
+\item[4.4.1)] Are these pairs of vectors orthonormal or only orthogonal or only independent?
+\begin{itemize}
+\item[a)] $\left[\begin{array}{c} 1 \\ 0\end{array}\right]$ and $\left[\begin{array}{c} -1 \\ 1\end{array}\right]$
+\item[b)] $\left[\begin{array}{c} 0.6 \\ 0.8\end{array}\right]$ and $\left[\begin{array}{r}0.4\\-0.3\end{array}\right]$
+\item[c)] $\left[\begin{array}{c} \cos\theta \\ \sin\theta \end{array}\right]$ and 
+          $\left[\begin{array}{r} -\sin\theta \\ \cos\theta \end{array}\right]$
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)]$\left[\begin{array}{c} 1 \\ 0\end{array}\right] \cdot\left[\begin{array}{c} -1 \\ 1\end{array}\right]=-1$ so the two vectors can only be linearly independent (which they clearly are).
+\item[b)] $\left[\begin{array}{c} 0.6 \\ 0.8\end{array}\right]\cdot\left[\begin{array}{r}0.4\\-0.3\end{array}\right]=0$ but $\left[\begin{array}{r}0.4\\-0.3\end{array}\right]\cdot\left[\begin{array}{r}0.4\\-0.3\end{array}\right]\neq1$ so the two vectors are orthogonal.
+\item[c)]$\left[\begin{array}{c} \cos\theta \\ \sin\theta \end{array}\right] \cdot
+          \left[\begin{array}{r} -\sin\theta \\ \cos\theta \end{array}\right]=0$ and 
+          $\left[\begin{array}{c} \cos\theta \\ \sin\theta \end{array}\right] \cdot \left[\begin{array}{c} \cos\theta \\ \sin\theta \end{array}\right]=1$ and 
+          $\left[\begin{array}{r} -\sin\theta \\ \cos\theta \end{array}\right]\cdot\left[\begin{array}{r} -\sin\theta \\ \cos\theta \end{array}\right]=1$ so the two vectors are orthonormal.
+\end{itemize}
+
+\item[4.4.4)] Give an example of each of the following:
+\begin{itemize}
+\item[a)] A matrix $Q$ that has orthonormal columns but $QQ^T\neq I$
+\item[b)] Two orthogonal vectors that are not linearly independent.
+\item[c)] An orthonormal basis for $\mathbb{R}^3$, including the vector $\vec{q_1}=(1,1,1)/\sqrt[]{3}$
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $Q=\left[\begin{array}{cc}
+0 & 0\\ 
+0 & 1\\ 
+1 & 0 
+\end{array}\right] \Rightarrow QQ^T=
+\left[\begin{array}{ccc}
+0 & 0 & 0\\ 
+0 & 1 & 0\\ 
+0 & 0 & 1
+\end{array}\right]$
+\item[b)] $(1,0)$ and $(0,0)$
+\item[c)] Consider $\vec{a_2}=(1,0,0)$ and $\vec{a_3}=(0,0,1)$, and note that $\vec{q_1}, \vec{a_2}, \vec{a_3}$
+ are linearly independent. Perform the Gram-Schmidt Process:
+ \[\vec{A}=\vec{q_1}\]
+ \[\vec{B}=\vec{a_2}-\frac{\vec{A}^T\vec{a_2}}{\vec{A}^T\vec{A}}\vec{A}=\vec{a_2}-\frac{\frac{1}{\sqrt[]{3}}}{1}\vec{A}
+ =\vec{a_2}-(\sfrac{1}{3},\sfrac{1}{3},\sfrac{1}{3})=(\sfrac{2}{3},-\sfrac{1}{3},-\sfrac{1}{3})\]
+ \[\vec{C}=\vec{a_3}-\frac{\vec{A}^T\vec{a_3}}{\vec{A}^T\vec{A}}\vec{A}-\frac{\vec{B}^T\vec{a_3}}{\vec{B}^T\vec{B}}\vec{B}=\vec{a_3}-\frac{\frac{1}{\sqrt[]{3}}}{1}\vec{A}-\frac{\sfrac{-1}{3}}{\sfrac{2}{3}}\vec{B}=\vec{a_3}- \left[\begin{array}{c}
+\sfrac{1}{3}\\ 
+\sfrac{1}{3}\\ 
+\sfrac{1}{3}
+\end{array}\right]+
+ \left[\begin{array}{c}
+\sfrac{1}{3}\\ 
+\sfrac{-1}{6}\\ 
+\sfrac{-1}{6}
+\end{array}\right]=
+ \left[\begin{array}{c}
+\sfrac{2}{3}\\ 
+\sfrac{-1}{6}\\ 
+\sfrac{5}{6}
+\end{array}\right]\]
+Since $\vec{q_1}$ is already a unit vector, our orthonormal vectors are $\vec{q_1}$, $\vec{q_2}=\frac{\vec{B}}{||\vec{B}||}=\sqrt[]{\sfrac{3}{2}}(\sfrac{2}{3},-\sfrac{1}{3},-\sfrac{1}{3})$, $\vec{q_3}=\frac{\vec{C}}{||\vec{C}||}=\sqrt[]{\sfrac{6}{7}}(\sfrac{2}{3},\sfrac{-1}{6},\sfrac{5}{6})$ and therefore our orthonormal basis for $\mathbb{R}^3$ is $\{\vec{q_1},\vec{q_2},\vec{q_3}\}$
+ \end{itemize}
+
+\item[4.4.23)] Find $\vec{q_1}, \vec{q_2}, \vec{q_3}$ (orthonormal) as combinations of $\vec{a}, \vec{b}, \vec{c}$ (independent columns). Then write $H$ as $QR$.
+\[H=\left[\begin{array}{ccc} 1 & 2 & 4\\ 0 & 0 & 5\\ 0 & 3 & 6\end{array}\right]\]
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] \[\vec{A}=\vec{a}=(1,0,0)\] 
+\[\vec{B}=\vec{b}-\frac{\vec{A}^T\vec{b}}{\vec{A}^T\vec{A}}\vec{A}=\left[\begin{array}{ccc}2\\0\\3\end{array}\right]-\left[\begin{array}{ccc}2\\0\\0\end{array}\right]=\left[\begin{array}{ccc}0\\0\\3\end{array}\right]\]
+\[\vec{C}=\vec{c}-\frac{\vec{A}^T\vec{c}}{\vec{A}^T\vec{A}}\vec{A}-\frac{\vec{B}^T\vec{b}}{\vec{B}^T\vec{B}}\vec{B}
+=\left[\begin{array}{ccc}4\\5\\6\end{array}\right]-\left[\begin{array}{ccc}4\\0\\0\end{array}\right]-\left[\begin{array}{ccc}0\\0\\6\end{array}\right]=\left[\begin{array}{ccc}0\\5\\0\end{array}\right]\]
+So $\vec{q_1}=\frac{\vec{A}}{||\vec{A}||}=(1,0,0)$, $\vec{q_2}=\frac{\vec{B}}{||\vec{B}||}=(0,0,1)$, and $q_3=\frac{\vec{C}}{||\vec{C}||}=(0,1,0)$.
+\item[b)] $H=QR=\left[\begin{array}{ccc} 1 & 0 & 0\\ 0 & 0 & 1\\ 0 & 1 & 0\end{array}\right]
+\left[\begin{array}{ccc} \vec{q_1}^T\vec{a} & \vec{q_1}^T\vec{b} & \vec{q_1}^T\vec{c}\\ 0 & \vec{q_2}^T\vec{b} & \vec{q_2}^T\vec{c}\\ 0 & 0 & \vec{q_3}^T\vec{c}\end{array}\right]=\left[\begin{array}{ccc} 1 & 0 & 0\\ 0 & 0 & 1\\ 0 & 1 & 0\end{array}\right]\left[\begin{array}{ccc} 1 & 2 & 4\\ 0 & 3 & 6\\ 0 & 0 & 5\end{array}\right]$
+\end{itemize}
+
+\item[5.1.3)] True or false, with a reason if true or a counterexample if false:
+\begin{itemize}
+\item[a)] The determinant of $I+A$ is $1+|A|$.
+\item[b)] The determinant of $ABC$ is $|A||B||C|$.
+\item[c)] The determinant of $4A$ is 4$|A|$.
+\item[d)] The determinant of $AB-BA$ is zero. Try an example with 
+		  $A=\left[\begin{array}{ccc} 0 & 0 \\ 0 & 1\end{array}\right]$
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] False. Consider $A=\left[\begin{array}{ccc} 2 & 0 \\ 0 & 2\end{array}\right] \Rightarrow |I+A|=\left|\begin{array}{ccc} 3 & 0 \\ 0 & 3\end{array}\right|=9$ \\whereas $|I|+|A|=1+|A|=1+\left|\begin{array}{ccc} 2 & 0 \\ 0 & 2\end{array}\right|=1+4=5$
+\item[b)] True. $|ABC|=|AB||C|=|A||B||C|$
+\item[c)] False. $4\left|\begin{array}{ccc} 1 & 0 \\ 0 & 1\end{array}\right|=4(1)=4$\\whereas
+		  $\left|\begin{array}{ccc} 4 & 0 \\ 0 & 4\end{array}\right|=16$
+\item[d)] False. Consider $A=\left[\begin{array}{ccc} 0 & 0 \\ 0 & 1\end{array}\right]$ and $B=\left[\begin{array}{ccc} 0 & 1 \\ 1 & 0\end{array}\right]$. Then $|AB-BC|=\left|\begin{array}{ccc} 0 & -1 \\ 1 & 0\end{array}\right|=1$
+\end{itemize}
+
+\item[5.1.12)] The inverse of a 2 by 2 matrix seems to have determinant = 1:
+\[|A^{-1}|=\left|\frac{1}{ad-bc}\left[\begin{array}{rr} d & -b \\ -c & a\end{array}\right]\right|=\frac{ad-bc}{ad-bc}=1\]
+What is wrong with this calculation? What is the correct $|A^{-1}|$?
+
+\textit{Solution.} No clue what the writers of that equation were trying to do, so I can't comment on what's wrong with it other than that it is indeed wrong. We know that $|A^{-1}|=\frac{1}{|A|}$. So if $A=\left[\begin{array}{ccc} a & b \\ c & d\end{array}\right]$ then $|A|=ad-bc$. Therefore $|A^{-1}|=\frac{1}{|A|}=\frac{1}{ad-bc}$
+
+\item[5.1.24)] Elimination reduces $A$ to $U$. Then $A=LU$:
+\[A=\left[\begin{array}{rcr} 3 & 3 & 4\\ 6 & 8 & 7\\ -3 & 5 & -9\end{array}\right]
+=\left[\begin{array}{rcc} 1 & 0 & 0\\ 2 & 1 & 0\\ -1 & 4 & 1\end{array}\right]
+ \left[\begin{array}{ccr} 3 & 3 & 4\\ 0 & 2 & -1\\ 0 & 0 & -1\end{array}\right]\]
+Find $|L|$, $|U|$, $|A|$, $|U^{-1}L^{-1}|$, and $|U^{-1}L^{-1}A|$.
+
+\textit{Solution.} Recall that the determinant of triangular matrices is the product of its diagonal entries.
+\begin{itemize}
+\item[a)] $|L|=1$
+\item[b)] $|U|=3 \cdot 2 \cdot -1=-6$
+\item[c)] $|A|=(-1)^{1+1}3\left|\begin{array}{ccc} 8 & 7 \\ 5 & -9\end{array}\right|+
+		  (-1)^{1+2}3\left|\begin{array}{ccc} 6 & 7 \\ -3 & -9\end{array}\right|+
+          (-1)^{1+3}4\left|\begin{array}{ccc} 6 & 8 \\ -3 & 5\end{array}\right|$\\
+          $=3(-72-35)-3(-54+21)+4(30+24)=-6$
+\item[d)] $|U^{-1}L^{-1}|=|U^{-1}||L^{-1}|=(\frac{1}{|U|})(\frac{1}{|L|})=(\frac{-1}{6})(\frac{1}{1})=\frac{-1}{6}$
+\item[e)] $|U^{-1}L^{-1}A|=|U^{-1}L^{-1}||A|=(\frac{-1}{6})(-6)=1$
+\end{itemize}
+
+\item[5.1.28)] True or False (give a reason if true or a 2 by 2 example if false).
+\begin{itemize}
+\item[a)] If $A$ is not invertible then $AB$ is not invertible.
+\item[b)] The determinant of $A$ is always the product of its pivots.
+\item[c)] The determinant of $A-B$ equals $|A|-|B|$.
+\item[d)] $AB$ and $BA$ have the same determinant.
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] True. $A$ is not invertible, so $|A|=0$ which means $|AB|=|A||B|=0$ and therefore $AB$ is not invertible.
+\item[b)] True. Consider $A=\begin{bmatrix} 1 & 2 \\ 2 & 1\end{bmatrix}$. $|A|=ad-bc$. Performing elimination on $A$ to get the pivots yields $\begin{bmatrix} a & b \\ 0 & \frac{-cb}{a}+d\end{bmatrix}$. Multiplying the pivots together, we get $\frac{-acb}{a}+ad=ad-bc$.
+\item[c)] False. Consider $A=I$ and $B=2I$. $|A-B|=\left|\begin{array}{ccc} -1 & 0 \\ 0 & -1\end{array}\right|=1$ whereas $|A|-|B|=1-4=-3$
+\item[d)] True. $|AB|=|A||B|=|B||A|=|BA|$
+\end{itemize}
+
+\item[5.2.34)] This problem shows in two ways that $|A|=0$ (the $x$'s are any numbers):
+\[A=\left[\begin{array}{ccccc}
+x & x & x & x & x\\ 
+x & x & x & x & x\\ 
+0 & 0 & 0 & x & x\\
+0 & 0 & 0 & x & x\\
+0 & 0 & 0 & x & x
+\end{array}\right]\]
+\begin{itemize}
+\item[a)] How do you know that the rows are linearly dependent?
+\item[b)] Explain why all 120 terms are zero in the big formula for $|A|$.
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] There can't possibly be a pivot in the 3,3 position of the matrix since it is already zero and elimination won't affect it.
+\item[b)] If the determinant is calculated in the most efficient way possible (by fixating on the rows with the most terms that are 0), it quickly becomes apparent that eventually, a $|M_{ij}|$ will consist of all zeros, and therefore zero out that term. This occurs for every term in the big formula for the determinant.
+\end{itemize}
+
+\end{itemize}
+
+\noindent Problem S1:\\
+a) Find an orthonormal basis for the space spanned by $\vec{a}=(1,0,1,0)^T$, $\vec{b}=(0,1,0,1)^T$, and $\vec{c}=(1,1,0,0)^T$.\\
+b) Create the projection matrix $P$ which projects any vector onto $\textsf{span}\left\{(1,0,1,0)^T, (0,1,0,1)^T,(1,1,0,0)^T\right\}$.\\
+c) Create a non-zero vector $\vec{x}$ for which $P\vec{x} = \vec{0}$ and explain whatever intuition you used to create it.\\
+d) Name three linearly independent vectors $\vec{v}_1, \vec{v}_2, \vec{v}_3$ for which $P\vec{v}_i = \vec{v}_i$ ($1 \leq i \leq 3$).\\
+\textit{Solution.}
+\begin{itemize}
+\item[a)] 
+\[\vec{A}=\vec{a}=(1,0,1,0)\] 
+\[\vec{B}=\vec{b}-\frac{\vec{A}^T\vec{b}}{\vec{A}^T\vec{A}}\vec{A}=\vec{b}-0=\begin{bmatrix}0\\1\\0\\1\end{bmatrix}\]
+\[\vec{C}=\vec{c}-\frac{\vec{A}^T\vec{c}}{\vec{A}^T\vec{A}}\vec{A}-\frac{\vec{B}^T\vec{b}}{\vec{B}^T\vec{B}}\vec{B}
+=\left[\begin{array}{ccc}1\\1\\0\\0\end{array}\right]-\frac{1}{2}\left[\begin{array}{ccc}1\\0\\1\\0\end{array}\right]-\frac{1}{2}\left[\begin{array}{ccc}0\\1\\0\\1\end{array}\right]=\frac{1}{2}\left[\begin{array}{r}1\\1\\-1\\-1\end{array}\right]\]
+\[\vec{q_1}=\frac{\vec{A}}{||\vec{A}||}=\frac{1}{\sqrt[]{2}}\vec{A}, \hspace{5mm} \vec{q_2}=\frac{\vec{B}}{||\vec{B}||}=\frac{1}{\sqrt[]{2}}\vec{B},\hspace{5mm}\vec{q_3}=\frac{\vec{C}}{||\vec{C}||}=\vec{C}\]
+And so our orthonormal basis for the space spanned by $\vec{a}$, $\vec{b}$, and $\vec{c}$ is $\{\vec{q_1},\vec{q_2},\vec{q_3}\}$.
+\item[b-d)]Unless I'm missing something, the rest of this problem is absolutely brutal.
+\end{itemize}
+
+\noindent Problem S2: Assume $\mathbf{A}$ is a 3x3 diagonal matrix with positive diagonal entries.\\
+Consider the sequence of matrices $\{\mathbf{A}, \mathbf{A}^2,...,\mathbf{A}^n,...\}$.  $\det(\mathbf{A})<1$ and $\det(\mathbf{A})>1$ tell us whether $\mathbf{A}^n$ causes volumes to shrink to zero or grow without bound as $n\rightarrow \infty$.  However, $\det(\mathbf{A})<1$ and $\det(\mathbf{A})>1$ do not necessarily tell us if specific entries of the matrix are growing to infinity.  You will show this by working with diagonal matrices. In the following, assume $\mathbf{A}$ is a diagonal 2x2 matrix.  \\
+a) Assume $|\mathbf{A}|>1$.  Using properties of the determinant, compute $\lim_{n\rightarrow\infty}|\mathbf{A}^n|$. \\
+b)   Assume $|\mathbf{A}|>1$. Show that there is some entry of $\mathbf{A}^n$ that diverges to infinity as $n\rightarrow\infty$.  That is, show that $\lim_{n\rightarrow \infty} (A^n)_{ij}=\infty$ for some $i,j$ entry of the matrix. \\
+c) Assume $|\mathbf{A}|<1$.  Using properties of the determinant, compute $\lim_{n\rightarrow\infty}|\mathbf{A}^n|$. \\
+d) Create a 3x3 diagonal matrix $\mathbf{B}$ such that $|\mathbf{B}|<1$ and there is some entry of $\mathbf{B}^n$ that diverges to infinity as $n\rightarrow\infty$.   \\
+\textit{Solution.}\\
+\begin{center}Let $A=\begin{bmatrix} x & 0 \\ 0 & y\end{bmatrix}$.\end{center}
+\begin{itemize}
+\item[a)] If $|A|=xy$, then $xy > 1$. Therefore $\lim_{n\rightarrow\infty}|A^n|=\lim_{n\rightarrow\infty}(x^ny^n)=\lim_{n\rightarrow\infty}(xy)^n=\infty$.
+\item[b)] As in part (a), in order for $xy>1$, $x>\frac{1}{y}$, $y>\frac{1}{x}$, and either $x$ or $y$ or both are greater than $1$. 
+$A^n=\begin{bmatrix}x^n & 0 \\ 0 & y^n\end{bmatrix}$. Therefore either $x$ grows to infinity, $y$ grows to infinity, or both grow to infinity as $n$ approaches infinity.
+\item[c)] If $|A|<1$, then $xy<1$. Therefore $\lim_{n\rightarrow\infty}|A^n|=\lim_{n\rightarrow\infty}(x^ny^n)=\lim_{n\rightarrow\infty}(xy)^n=0$
+\item[d)] $B=\begin{bmatrix}3&0&0\\0&\frac{1}{5}&0\\0&0&\frac{1}{8}\end{bmatrix}$. $|B|=\frac{3}{40}$. 
+$B^n=\begin{bmatrix}3^n & 0 & 0\\0&(\frac{1}{5})^n&0\\0&0&(\frac{1}{8})^n\end{bmatrix}$.
+\end{itemize}
+
+\noindent Problem S3: Using Cramer's Rule, compute the basis for $\mathcal{N}(\mathbf{A^T})$ where $\mathbf{A}= \mathbf{LU}$ is\\
+$\mathbf{A} = \left[\begin{array}{cccc} 1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0\\-3 & 0 & 1 & 0\\ -1& 0& -2 & 1\end{array}\right]\left[\begin{array}{cccc} 1 & 6 & 5 & 1\\ 0 & 2 & 10 & 3\\0 & 0 & 0 & 0\\ 0& 0& 0 & 0\end{array}\right]$
+
+\textit{Solution.} \\
+A basis of $\mathcal{N}(\mathbf{A^T})$ is the free rows of $\mathbf{A}$ in $\mathbf{E}=\mathbf{L}^{-1}$. So we can find that basis using Cramer's rule to find the inverse of the third and fourth row of $\mathbf{L}$. The entries of $\mathbf{L}$ that are $0$ will remain $0$ in the inverse, so we only need to calculate the remaining entries of the third and fourth row.
+\[(L^{-1})_{31}=(-1)^4\left|\begin{array}{ccc} 0 & 1 &0\\ -3 & 0 & 0\\-1 &0 & 1\end{array}\right|=
+(-1)^3\left|\begin{array}{ccc} -3 & 0 \\ -1 & 1\end{array}\right|=-(-3)=3\]
+\[(L^{-1})_{33}=(-1)^6\left|\begin{array}{ccc} 1 & 0 &0\\ 0 & 1 & 0\\-1 &0 & 1\end{array}\right|=
+(-1)^2\left|\begin{array}{ccc} 1 & 0 \\ 0 & 1\end{array}\right|=1\]
+\[(L^{-1})_{41}=(-1)^5\left|\begin{array}{ccc} 0 & 1 &0\\ -3 & 0 & 1\\-1 &0 & -2\end{array}\right|=
+-(-1)^3\left|\begin{array}{ccc} -3 & 1 \\ -1 & -2\end{array}\right|=6+1=7\]
+\[(L^{-1})_{43}=(-1)^7\left|\begin{array}{ccc} 1 & 0 & 0\\ 0& 1 & 0\\-1 &0 & -2\end{array}\right|=
+-(-1)^2\left|\begin{array}{ccc} 1 & 0 \\ 0 & -2\end{array}\right|=-(-2)=2\]
+\[(L^{-1})_{44}=(-1)^8\left|\begin{array}{ccc} 1 & 0 &0\\ 0 & 1 & 0\\-3 &0 & 1\end{array}\right|=
+(-1)^2\left|\begin{array}{ccc} 1 & 0 \\ 0 & 1\end{array}\right|=1\]
+So a basis for $\mathcal{N}(\mathbf{A^T})$ is $\{(3,0,1,0),(7,0,2,1)\}$.
+
+
+\end{document}
+
+$\left | \begin{bmatrix}
+1 & 2 & 3\\
+3 & 1 & 1\\
+0 & 1 & 32
+\end{bmatrix} \right |
+$
+
+$\left | \begin{pmatrix}
+1 & 2 & 3\\
+3 & 1 & 1\\
+0 & 1 & 32
+\end{pmatrix} \right |
+$
+
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+
+$\left[\begin{array}{cc}  & \\  & \end{array}\right]$
+
+$\left[\begin{array}{ccc}  &  & \\  &  & \\ & & \end{array}\right]$

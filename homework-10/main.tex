@@ -1,0 +1,345 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,setspace,setspace,graphicx,natbib,color,xfrac}
+
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+%%%% In most cases you won't need to edit anything above this line %%%%
+
+\begin{document}
+\hfill Tanner Kvarfordt
+
+\hfill Math 2270
+
+\hfill Assignment \#10
+
+
+\begin{itemize}
+\item[6.2.2)] If $A$ has $\lambda_1=2$ with eigenvector $\vec{x}_1=\begin{bmatrix}1 \\ 0\end{bmatrix}$ and
+		 	  $\lambda_2=5$ with $\vec{x}_2 = \begin{bmatrix}1 \\ 1\end{bmatrix}$, use $X\Lambda X^{-1}$ to find 
+              $A$.
+              No other matrix has the same $\lambda$'s and $\vec{x}$'s.
+
+\textit{Solution.}
+$X=\begin{bmatrix}
+1 & 1 \\ 0 & 1
+\end{bmatrix}\Rightarrow
+X^{-1}=\begin{bmatrix}
+1 & -1 \\ 0 & 1
+\end{bmatrix}$, and using the eigenvalues, $\Lambda= 
+\begin{bmatrix}
+2 & 0 \\ 0 & 5
+\end{bmatrix}$\\
+so $X\Lambda X^{-1}=\begin{bmatrix}
+2 & 3 \\ 0 & 5
+\end{bmatrix}=A$
+
+\item[6.2.11)] True or false: If the eigenvalues of $A$ are 2, 2, 5 then the matrix is certainly
+			   \begin{itemize}
+			   \item[a)] invertible
+               \item[b)] diagonalizable
+               \item[c)] not diagonalizable
+			   \end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] True. $|A|=(2)(2)(5)=20\neq0$ so $A$ is invertible.
+\item[b)] False. When $\lambda=2$, it is possible for the algebraic multiplicity and geometric multiplicity of $\lambda$ to be equivalent, but not certain.
+\item[c)] False. See part (b) for explanation.
+\end{itemize}
+
+\item[6.2.16)] Find $\Lambda$ and $X$ to diagonalize $A_1$ in Problem 15 (See Textbook). 
+			   What is the limit of $\Lambda^k$ as $k \rightarrow\infty$? 
+               What is the limit of $X\Lambda^k X^{-1}$? 
+               In the columns of this limiting matrix you see the $\rule{1cm}{0.15mm}$.
+               \[A_1=\begin{bmatrix}
+               \sfrac{3}{5} & \sfrac{9}{10} \\ \sfrac{2}{5} & \sfrac{1}{10}
+               \end{bmatrix}\]
+            
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $|A_1-\lambda I|=\begin{bmatrix}
+			\sfrac{3}{5} -\lambda & \sfrac{9}{10} \\ \sfrac{2}{5} & \sfrac{1}{10} -\lambda
+			\end{bmatrix}
+            =\lambda^2-\dfrac{7}{10}\lambda-\dfrac{3}{10}=(\lambda-1)(\lambda+\dfrac{3}{10})
+            \Rightarrow \lambda=1,\dfrac{-3}{10}$ \\
+            
+            $(A_1-\lambda_1 I)\vec{x}=\vec{0}\Rightarrow
+            \begin{bmatrix}
+            \sfrac{-2}{5} & \sfrac{9}{10} \\ \sfrac{2}{5} & \sfrac{-9}{10}
+            \end{bmatrix}\vec{x}=\vec{0}\longrightarrow
+            \begin{bmatrix}
+            \sfrac{-2}{5} & \sfrac{9}{10} \\ 0 & 0
+            \end{bmatrix}\vec{x}=\vec{0}$ free var $x_2=1$, \\
+            $\Rightarrow x_1=\sfrac{9}{4}$, so $\vec{v}_1=\begin{bmatrix}\sfrac{9}{4} \\ 1\end{bmatrix}$ \\
+            
+            $(A_1-\lambda_2 I)\vec{x}=\vec{0}\Rightarrow
+            \begin{bmatrix}
+            \sfrac{9}{10} & \sfrac{9}{10} \\ \sfrac{2}{5} & \sfrac{2}{5}
+            \end{bmatrix}\vec{x}=\vec{0}\longrightarrow
+            \begin{bmatrix}
+            \sfrac{9}{10} & \sfrac{9}{10} \\ 0 & 0
+            \end{bmatrix}\vec{x}=\vec{0}$ free var $x_2=1$, \\
+            $\Rightarrow x_1=-1$, so $\vec{v}_{\sfrac{-3}{10}}=\begin{bmatrix} -1 \\ 1\end{bmatrix}$ \\
+            Therefore 
+            $A=X \Lambda X^{-1}=
+            \begin{bmatrix}
+            \sfrac{9}{4} & -1 \\ 1 & 1
+            \end{bmatrix}
+            \begin{bmatrix}
+            1 & 0 \\ 0 & \sfrac{-3}{10}
+            \end{bmatrix} X^{-1}$
+\item[b)] $\lim_{k\rightarrow\infty}\Lambda^k=
+			\begin{bmatrix}
+			1^k & 0 \\ 0 & (\frac{-3}{10})^k
+			\end{bmatrix}=
+            \begin{bmatrix}
+            1 & 0 \\ 0 & 0
+            \end{bmatrix}$
+\item[c)] $\lim_{k\rightarrow\infty}X\Lambda^k X^{-1}=
+ 			\begin{bmatrix}
+            \sfrac{9}{4} & -1 \\ 1 & 1
+            \end{bmatrix}
+            \begin{bmatrix}
+            1 & 0 \\ 0 & 0
+            \end{bmatrix}X^{-1}=
+            \begin{bmatrix}
+            \sfrac{9}{4} & 0 \\ 1 & 0
+            \end{bmatrix}X^{-1}$
+\item[d)] the eigenvector for $\lambda=1$
+\end{itemize}
+
+\end{itemize}
+
+\noindent \textbf{Problem S1}: I have argued in class that the eigenvectors of a
+matrix $\mathbf{A}$ determine the behavior of $\lim_{n\rightarrow \infty} 
+\mathbf{A}^n \vec{x}$.  What this means is that the vector 
+$\mathbf{A}^{100}\vec{x}$ should look approximately like one of the eigenvectors
+of $\mathbf{A}$.  In this problem, we will show this for the symmetric matrix 
+$\mathbf{A} =  \left[\begin{array}{cc} 5/4 & -3/4\\ -3/4 & 5/4\end{array}\right]
+$. 
+\begin{itemize}
+\item[(a)] Diagonalize $\mathbf{A}$.\\  (Hint: To make the algebra easier, I 
+suggest that you do not use orthonormal vectors in $\mathbf{S}$.)
+\item[(b)] Let $\vec{v}_1$ and $\vec{v}_2$ be the two eigenvectors of 
+$\mathbf{A}$.  Using the material from section 4.2, compute the projections of 
+an arbitrary vector $\vec{x}$ onto the two eigenvectors, i.e., compute 
+$proj_{\vec{v}_1}(\vec{x})$ and $proj_{\vec{v}_2}(\vec{x})$. 
+\item[(c)] Explain why $\vec{x} = proj_{\vec{v}_1}(\vec{x})+proj_{\vec{v}_2}
+(\vec{x})$.
+\item[(d)] Using the answers to the above parts, compute 
+$\mathbf{A}^{100}\vec{x}$ where $\vec{x} = [2,1]^T$.
+\item[(e)] Since $0.5^{100}$ is approximately zero, what is the approximate 
+value of $\mathbf{A}^{100}\vec{x}$ for $\vec{x} = [2,1]^T$? How does that 
+approximation relate to the eigenvectors of $\mathbf{A}$?
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] $|A-\lambda I| = 
+			\left|\begin{matrix}
+            \sfrac{5}{4}-\lambda & \sfrac{-3}{4} \\ \sfrac{3}{4} & \sfrac{5}{4} - \lambda
+			\end{matrix}\right|=\lambda^2-\dfrac{5}{2}\lambda+1=(\lambda-\sfrac{1}{2})(\lambda-2)=0
+            \Rightarrow \lambda=\dfrac{1}{2},2$ \\
+            $(A-\lambda_2I)=\begin{bmatrix}
+            \sfrac{-3}{4} & \sfrac{-3}{4} \\ \sfrac{-3}{4} & \sfrac{-3}{4}
+            \end{bmatrix} \Rightarrow \begin{bmatrix}
+            \sfrac{-3}{4} & \sfrac{-3}{4} \\ \sfrac{-3}{4} & \sfrac{-3}{4}
+            \end{bmatrix}\vec{x}=\vec{0}\longrightarrow
+            \begin{bmatrix}
+            \sfrac{-3}{4} & \sfrac{-3}{4} \\ 0 & 0
+            \end{bmatrix}\vec{x}=\vec{0} \Rightarrow$ free var $x_2=1\Rightarrow \vec{v}_2=\begin{bmatrix}
+            -1 \\ 1
+            \end{bmatrix}\Rightarrow \vec{v}_{\frac{1}{2}}=\begin{bmatrix}
+            1 \\ 1
+            \end{bmatrix}$ \\
+            Therefore $A=S\Lambda S^{-1}=
+            \begin{bmatrix}1 & -1 \\ 1 & 1\end{bmatrix} 
+            \begin{bmatrix}\sfrac{1}{2} & 0 \\ 0 & 2\end{bmatrix} 
+            S^{-1}$
+\item[b)] $P=\frac{\vec{v}_1^T\vec{x}}{\vec{v}_1^T\vec{v}_1}\vec{v_1}=\begin{bmatrix}
+			\sfrac{1}{2} \\ \sfrac{-1}{2}
+			\end{bmatrix}$ \\
+            $P=\frac{\vec{v}_2^T\vec{x}}{\vec{v}_2^T\vec{v}_2}\vec{v_2}=\begin{bmatrix}
+			\sfrac{3}{2} \\ \sfrac{3}{2}
+			\end{bmatrix}$
+\item[c)] Because $A$ is symmetric, and because $\vec{v}_1$ is orthogonal to $\vec{v}_2$.
+\item[d)] \[A^{100}\vec{x}=S\Lambda^{100} S^{-1}\vec{x}=
+			\begin{bmatrix}
+			 1 & -1 \\ 1 & 1
+			\end{bmatrix}
+            \begin{bmatrix}
+            (\sfrac{1}{2})^{100} & 0 \\ 0 & 2^{100}
+            \end{bmatrix}
+            \begin{bmatrix}
+            \sfrac{1}{2} & \sfrac{1}{2} \\ -\sfrac{1}{2} & \sfrac{1}{2}
+            \end{bmatrix}
+            \begin{bmatrix}
+            2 \\ 1
+            \end{bmatrix}\approx
+            \begin{bmatrix}
+            0 & -(2^{100}) \\ 0 & 2^{100}
+            \end{bmatrix}
+            \begin{bmatrix}
+            \sfrac{3}{2} \\ -\sfrac{1}{2}
+            \end{bmatrix}\approx
+            \begin{bmatrix}
+            2^{99} \\ -(2^{99})
+            \end{bmatrix}\]
+\item[e)] See part (c) for approximation of $\mathbf{A}^{100}\vec{x}$. It relates to the eigenvectors of $A$ in that it is a scalar multiple of the eigenvector $\begin{bmatrix}1 \\ -1 \end{bmatrix}$
+\end{itemize}
+
+\noindent \textbf{Problem S2}:  The results in problem S1 hold for any $n\times 
+n$ matrix that has $n$ linearly independent eigenvectors, i.e., when 
+$AM(\lambda_i) = GM(\lambda_i)$ for every eigenvalue.  Let $\vec{v}_1$, ..., 
+$\vec{v}_n$ denote the eigenvectors of $\mathbf{A}$ and $\lambda_1$, ..., 
+$\lambda_n$ be the corresponding eigenvalues.  
+\begin{itemize}
+\item[(a)] Explain why the eigenvectors form a basis for $\mathbf{R}^n$.
+\end{itemize}    
+Because the eigenvectors form a basis for $\mathbf{R}^n$, we can write an 
+arbitrary vector $\vec{x}$ in $\mathbf{R}^n$ as a linear combination of the 
+eigenvectors: $\vec{x} = c_1\vec{v}_1+...+c_n\vec{v}_n$. 
+\begin{itemize}
+\item[(b)] Using the linear combination $\vec{x} = c_1\vec{v}_1+...
++c_n\vec{v}_n$, compute $\mathbf{A}^{100}\vec{x}$. 
+\item[(c)] If $\lambda_1>1$ and $|\lambda_i|<1$ for $2\leq i\leq n$, what is the
+approximate value of $\mathbf{A}^{100}\vec{x}$? 
+\end{itemize} 
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] The eigenvectors form a basis of $\mathbf{R}^n$ because they are $n$ linearly independent vectors.
+\item[b)] $\mathbf{A}^{100}\vec{x}=c_1^{100}\vec{v}_1+c_2^{100}\vec{v}_2+...+c_n^{100}\vec{v}_n$
+\item[c)] If all eigenvectors but the first one are less than $1$, they will rapidly approach $0$ as they are raised by several orders of magnitude. Therefore $\mathbf{A}^{100}\vec{x}=c_1^{100}\vec{v_1}$
+\end{itemize}
+
+\noindent \textbf{Problem S3}: In this problem you will explore the dynamics of 
+a population with two stages: juveniles and adults.  Note this means you will be
+using a 2x2 matrix model. 
+\begin{itemize}
+\item[(a)] Throughout we will assume that juveniles mature after one year and 
+cannot reproduce.  Because of this assumption, what entry of the 2x2 matrix must
+be zero?
+\item[(b)] Assume that adults produce 5 offspring per year, the proportion of 
+surviving adults each year is 0.5, and the proportion of juveniles that survive 
+to become adults is 0.05.
+\begin{itemize}
+\item[(i)] Write down the matrix model for this case and determine the 
+eigenvalues and eigenvectors for the matrix.
+\item[(ii)] Is the population growing or decreasing?
+\end{itemize}
+\item[(c)] Assume that adults produce 5 offspring per year and the proportion of
+surviving adults each year is 0.5. You will now determine what proportion of the
+juvenile population needs to mature each year in order for a population to 
+increase.
+\begin{itemize}
+\item[(i)] Let $p$ denote the proportion of juveniles that survive to become 
+adults. Create a new matrix model with this unknown proportion.  
+\item[(ii)] Compute the eigenvalues for the matrix. (Hint: use the quadratic 
+formula.)
+\item[(iii)] Using the formula from part (ii), find the value of $p$ that 
+results in one eigenvalue being equal to one. 
+\end{itemize}
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[a)] The 1,1 entry must be 0.
+\item[b)]
+	\begin{itemize}
+	\item[i)] $\left|\begin{bmatrix}
+			    0 & 5 \\ 0.05 & 0.5	
+			   \end{bmatrix} -\lambda I\right|=\lambda^2-0.5\lambda-0.25=
+               \left(\lambda+\frac{\sqrt[]{5} - 1}{4} \right)\left(\lambda-\frac{\sqrt[]{5} + 1}{4} \right)=0$ \\
+               $\Rightarrow \lambda_1=\frac{-\sqrt[]{5} + 1}{4}$, $\lambda_2=\frac{\sqrt[]{5} + 1}{4}$ \\
+               Finding the eigenvector for $\lambda_1$:
+               $\begin{bmatrix}
+               \frac{\sqrt[]{5}-1}{4} & 5 \\ 0.05 & 0.5-\frac{-\sqrt[]{5}+1}{4}
+               \end{bmatrix}\vec{x}=\vec{0} \longrightarrow 
+               \begin{bmatrix}
+               \frac{\sqrt[]{5}-1}{4} & 5 \\ 0 & 0
+               \end{bmatrix}\vec{x}=\vec{0}$ \\
+               Since free variable $x_2=1$, $x_1=\frac{-20}{\sqrt[]{5}-1} \Rightarrow 
+               \vec{v}_{\lambda_1}= \begin{bmatrix} \frac{-20}{\sqrt[]{5}-1} \\ 1 \end{bmatrix}$ \\
+               Finding eigenvector for $\lambda_2$: 
+               $\begin{bmatrix}
+               \frac{-\sqrt[]{5}-1}{4} & 5 \\ 0.05 & 0.5 - \frac{\sqrt[]{5}+1}{4}
+               \end{bmatrix}\vec{x}=\vec{0} \longrightarrow 
+                \begin{bmatrix} \frac{-\sqrt[]{5}-1}{4} & 5 \\ 0 & 0 \end{bmatrix}\vec{x}=\vec{0}$ \\
+                Since free variable $x_2=1$, $x_1=\frac{-20}{-\sqrt[]{5}-1} \Rightarrow 
+                \vec{v}_{\lambda_2}=\begin{bmatrix} \frac{-20}{-\sqrt[]{5}-1} \\ 1\end{bmatrix}$
+	\item[ii)] Since neither eigenvalue is greater than one, the population is decreasing.
+	\end{itemize}
+\item[c)]
+	\begin{itemize}
+	\item[i)] $\begin{bmatrix}
+			   	0 & 5 \\ p & 0.5
+			  	\end{bmatrix}$
+	\item[ii)] $\left|\begin{matrix}
+				-\lambda & 5 \\ p & 0.5-\lambda
+				\end{matrix}\right|=\lambda^2-0.5\lambda-5p=0 \rightarrow
+                \lambda = \frac{0.5\pm\sqrt[]{0.25-4(-5p)}}{2}=\frac{0.5\pm\sqrt[]{0.25+20p}}{2}$
+    \item[iii)] In order for an eigenvalue to be greater than 1, $0.5\pm\sqrt[]{0.25+20p}$ must be
+    			greater than 2. In order for that to happen, $\sqrt[]{0.25+20p}$ must be greater than $1.5$.
+                $(1.5)^2=2.25$, so $0.25+20p > 2.25 \Rightarrow p > 0.1$ in order for an eigenvector to be greater 
+                than 1, and hence for the population to increase.
+	\end{itemize}
+\end{itemize}
+
+\noindent \textbf{Problem S4} \noindent Consider a population whose annual 4x4 
+Leslie matrix is $\mathbf{M} = \left[\begin{array}{cccc} 0 & 1 & 2 & 3\\  0.6 & 
+0.1 & 0 & 0\\ 0 & 0.5 & 0.2 & 0\\ 0 & 0 & 0.3 & 0.1 \end{array}\right]$.\\  
+Assume the 4 population stages are babies, small adults, medium adults, and 
+large adults. 
+\begin{itemize}
+\item[1)] (a) What is the biological interpretation of the 1,3 entry of 
+$\mathbf{M}$? \\
+(b) What is the biological interpretation of the 4,4 entry of $\mathbf{M}$?\\
+(c) What is the biological interpretation of the 2,1 entry of $\mathbf{M}$?
+\item[2)] The eigenvalues of $\mathbf{M}$ are 1.237, -0.55, and $-0.1447 \pm 
+0.55 i$.  Will the population experience long term growth or decline?
+\item[3)] Imagine that a fraction $p$ of the surviving small adults became large
+adults in one year (they skipped the medium adult stage).  What zero entry of 
+$\mathbf{M}$ would be replaced by $p$?
+\end{itemize}
+
+\textit{Solution.}
+\begin{itemize}
+\item[1)] (a) Medium adults produce 2 babies per year. \\
+		  (b) $M_{4,4}$ is the proportion of surviving large adults. \\
+          (c) $M_{2,1}$ is the proportion of babies maturing to small adults.
+\item[2)] Since at least one eigenvalue is greater than 1, the population will experience long term growth.
+\item[3)] $M_{4,2}$ would be replaced by $p$.
+\end{itemize}
+\end{document}
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+$\left[\begin{array}{cc}  & \\  & \end{array}\right]$
+$\left[\begin{array}{ccc}  &  & \\  &  & \\ & & \end{array}\right]$
+
+\end{document}
+
+
+CREATE VECTOR
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+
+CREATE EQUATION
+$A = \begin{align}{cc}
+ 1 & 2\\
+3 & 4
+\end{align}$
+
+CREATE EQUATION
+\begin{equation}
+y=x
+\end{equation}
+
+CREATE SYSTEM OF EQUATIONS
+\begin{align}
+y&=x\\
+y&=x
+\end{equation}
+

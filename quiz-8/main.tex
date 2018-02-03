@@ -1,0 +1,54 @@
+% pdflatex Quiz8.tex; evince Quiz8.pdf & 
+
+\documentclass[12pt,pdftex]{article}
+\usepackage{amsmath,amsthm,setspace,graphicx,natbib,color}
+
+\textwidth 7.0 truein
+\oddsidemargin -0.25in   %left-hand edge
+\evensidemargin -0.5 truein  %right-hand edge
+\topmargin -0.85in      %top of paper to top of head, pulls whole unit
+\textheight 9.5in
+
+
+\begin{document}
+
+\begin{center}
+\textbf{Math 2270-001 \hspace{10pt} Linear Algebra \hspace{10pt} Fall 2017}
+\end{center}
+
+
+\noindent \textbf{Tanner Kvarfordt}  A02052217\\
+\noindent \textbf{Self-Quiz 8:}  Due 9/25/2017\\
+
+
+
+\begin{itemize}
+
+\item[1)] Consider the vectors space of all continuous functions, $\mathcal{C}$.  Show that the set of all quadratic polynomials, $\mathcal{P}_2$, is a subspace of $\mathcal{C}$.  (Recall that quadratic polynomials look like $ax^2+bx+c$.) \\
+\textit{Proof.} Let $\vec{v}=a_1x^2+b_1x+c_1$ and $\vec{w}=a_2x^2+b_2x+c_2$.
+	\begin{itemize}
+	\item[i)] $l\vec{v}=la_1x^2+lb_1x+lc_1 = ax^2+bx+c$ when $a=la_1$, $b=lb_1$, $c=lc_1$. Therefore, $l\vec{v}$ is in	  $\mathcal{P}_2$.
+    \item[ii)] $\vec{v}+\vec{w}=(a_1+a_2)x^2+(b_1+b_2)x+(c_1+c_2)=ax^2+bx+c$ when $a=a_1+a_2$, $b=b_1+b_2$, 			$c=c_1+c_2$. Therefore, $\vec{v}+\vec{w}$ is in $\mathcal{P}_2$.
+    \item[iii)] Therefore, $\mathcal{P}_2$ is a subspace of $\mathcal{C}$.
+	\end{itemize}
+
+\item[2)] Recall that $\mathbf{M}_{2x2}$ is the vector space of 2x2 matrices, e.g., $\left[\begin{array}{cc} 1 & 2\\ 3 & 4\end{array}\right]$.  Let $\mathcal{S}$ be the set of matrices of the form $\left[\begin{array}{cc} 0 & x\\ y & 0\end{array}\right]$. Prove that $\mathcal{S}$ is a subspace of $\mathbf{M}_{2x2}$. \\
+\textit{Proof.} Let $\vec{v}=\left[\begin{array}{cc} 0 & x_1\\ y_1 & 0\end{array}\right]$
+and $\vec{w} = \left[\begin{array}{cc} 0 & x_2\\ y_2 & 0\end{array}\right]$
+	\begin{itemize}
+	\item[i)] $c\vec{v}=\left[\begin{array}{cc} 0 & cx_1\\ cy_1 & 0\end{array}\right] =
+    \left[\begin{array}{cc} 0 & x\\ y & 0\end{array}\right]$ when $x=cx_1$ and $y=cy_1$. Therefore, $c\vec{v}$ is in $\mathcal{S}$.
+    \item[ii)] $\vec{v}+\vec{w}=\left[\begin{array}{cc} 0 & x_1+x_2\\ y_1+y_2 & 0\end{array}\right]=
+    \left[\begin{array}{cc} 0 & x\\ y & 0\end{array}\right]$ when $x=x_1+x_2$ and $y=y_1+y_2$. Therefore, $\vec{v}+\vec{w}$ is in $\mathcal{S}$.
+    \item[iii)] Therefore, $\mathcal{S}$ is a subspace of $\mathbf{M}_{2x2}$.
+	\end{itemize}
+
+\end{itemize}
+
+\end{document}
+
+$\vec{u}=\left[\begin{array}{c} 1 \\ 0\end{array}\right]$
+
+$\left[\begin{array}{cc}  & \\  & \end{array}\right]$
+
+$\left[\begin{array}{ccc}  &  & \\  &  & \\  &  & \end{array}\right]$
